@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root "home#index"
+  devise_for :users
+
+  resources :sites do
+    resources :users
+  end
+
+  root "sites#index"
 end
