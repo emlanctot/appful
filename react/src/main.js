@@ -1,11 +1,11 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CrudContainer from './containers/CrudContainer'
+import IndexContainer from './containers/IndexContainer'
 
 $(function() {
   ReactDOM.render(
-    <CrudContainer />,
+    <IndexContainer />,
     document.getElementById('app')
   );
 });

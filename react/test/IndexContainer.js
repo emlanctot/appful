@@ -15,7 +15,7 @@ describe('IndexContainer', function() {
   })
 
   it('should render a new site form component', () => {
-    expect(wrapper.find(SiteForm)).toBePresent();
+    expect(wrapper.find(NewSiteForm)).toBePresent();
   })
 
   it('should render an all sites component', () => {
