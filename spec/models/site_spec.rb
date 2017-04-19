@@ -3,10 +3,10 @@ require 'rails_helper'
 RSpec.describe Site, type: :model do
   let(:site) do
     Site.create(
-    name: "Google",
-    creator_id: 1,
-    url: "google.com",
-    description: 'This is a description. This is a description. This is a description. This is a description. This is a description. This is a description.',
+      name: "Google",
+      creator_id: 1,
+      url: "google.com",
+      description: 'This is a description. This is a description. This is a description. This is a description. This is a description. This is a description.'
     )
   end
 
