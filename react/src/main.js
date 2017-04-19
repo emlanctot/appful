@@ -1,10 +1,11 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import CrudContainer from './containers/CrudContainer'
 
 $(function() {
   ReactDOM.render(
-    <h1>Hello, World</h1>,
+    <CrudContainer />,
     document.getElementById('app')
   );
 });
