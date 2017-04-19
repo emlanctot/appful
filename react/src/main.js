@@ -1,10 +1,11 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import IndexContainer from './containers/IndexContainer'
 
 $(function() {
   ReactDOM.render(
-    <h1>Hello, World</h1>,
+    <IndexContainer />,
     document.getElementById('app')
   );
 });
