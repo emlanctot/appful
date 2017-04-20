@@ -21,7 +21,7 @@ const NewSiteForm = (props) => {
       <label> Experience: </label>
       <input name="experience" type="text" onChange={props.experienceChange} value={props.experienceValue}/>
 
-      <input type="submit" value="submit"/>
+      <input name='submit' type="submit" value="submit"/>
     </form>
   )
 }

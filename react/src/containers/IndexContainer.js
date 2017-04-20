@@ -110,7 +110,7 @@ class IndexContainer extends React.Component {
 
     return(
       <div>
-        <h1> Welcome to Appful </h1>
+        <h1>Welcome to Appful</h1>
 
         <NewSiteForm
           nameValue = {this.state.name}
