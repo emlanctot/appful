@@ -23,4 +23,4 @@ class Root extends Component {
   }
 }
 
-export default Root
+export default Root;

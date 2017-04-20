@@ -7,7 +7,6 @@ class NavContainer extends React.Component {
 
   }
 
-
   render() {
 
     return(
@@ -20,4 +19,4 @@ class NavContainer extends React.Component {
   }
 }
 
-export default NavContainer
+export default NavContainer;

@@ -13,8 +13,10 @@ class IndexContainer extends React.Component {
       description: '',
       collaborators: '',
       github_url: '',
-      experience: ''
+      experience: '',
+      formToggle: false
     }
+    this.handleFormButtonClick = this.handleFormButtonClick.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleCreatorIdChange = this.handleCreatorIdChange.bind(this)
     this.handleNameChange = this.handleNameChange.bind(this)
@@ -30,7 +32,7 @@ class IndexContainer extends React.Component {
   }
 
   getData() {
-  fetch(`/api/v1/sites`)
+  fetch(`/api/v1/sites/`)
     .then(response => response.json())
     .then(responseData => {
       this.setState({ sites: responseData })
@@ -106,13 +108,35 @@ class IndexContainer extends React.Component {
     this.setState({ experience: event.target.value })
   }
 
-  render() {
+  handleFormButtonClick() {
+    if (this.state.formToggle == false) {
+      this.setState({
+        formToggle: true,
+        menuButton: ''
+      })
+    } else {
+      this.setState({
+        formToggle: false,
+        menuButton: ''
+      })
+    }
+  }
 
+  render() {
+    let className;
+      if (this.state.formToggle) {
+        className = 'selected'
+      } else {
+        className = 'hidden'
+      }
     return(
       <div>
-        <h1> Welcome to Appful </h1>
+        <center> <h1> Welcome to Appful </h1> </center>
 
         <NewSiteForm
+          className = {className}
+          handleFormButtonClick = {this.handleFormButtonClick}
+
           nameValue = {this.state.name}
           creatorValue = {this.state.creator_id}
           urlValue = {this.state.url}
@@ -132,9 +156,11 @@ class IndexContainer extends React.Component {
           handleSubmit = {this.handleSubmit}
         />
 
-        <AllSites
-          sites = {this.state.sites}
-        />
+        <div className="column row">
+          <AllSites
+            sites = {this.state.sites}
+          />
+        </div>
 
       </div>
 
