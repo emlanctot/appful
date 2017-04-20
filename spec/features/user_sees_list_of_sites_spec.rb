@@ -8,8 +8,8 @@ feature "User sees all sites" do
   scenario "when user visits page, sees all sites" do
     visit '/'
 
-    expect(page).to have_content "#{site.name}"
-    expect(page).to have_content "#{site.description}"
+    expect(page).to have_content `#{site.name}`
+    expect(page).to have_content `#{site.description}`
   end
 
 end
