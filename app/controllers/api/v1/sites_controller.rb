@@ -7,10 +7,16 @@ class Api::V1::SitesController < ApplicationController
   end
 
   def create
+    before_action :authenticate_user!
     @site = Site.create(site_params)
     if @site.save!
       render json: @site
     end
+  end
+
+  def show
+    @site = Site.find(params[:id])
+    render json: @site
   end
 
   private
