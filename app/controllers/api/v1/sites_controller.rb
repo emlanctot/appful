@@ -13,6 +13,10 @@ class Api::V1::SitesController < ApplicationController
     end
   end
 
+  def show
+    @site = Site.find(params[:id])
+  end
+
   private
 
   def site_params
