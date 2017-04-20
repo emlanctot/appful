@@ -6,6 +6,7 @@ class IndexContainer extends React.Component {
   constructor(props){
     super(props);
     this.state = {
+      errors: {},
       sites: [],
       name: '',
       creator_id: 1,
@@ -18,7 +19,6 @@ class IndexContainer extends React.Component {
     }
     this.handleFormButtonClick = this.handleFormButtonClick.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleCreatorIdChange = this.handleCreatorIdChange.bind(this)
     this.handleNameChange = this.handleNameChange.bind(this)
     this.handleUrlChange = this.handleUrlChange.bind(this)
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this)
@@ -52,19 +52,25 @@ class IndexContainer extends React.Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault()
-    let sitePayload = {
-      name: this.state.name,
-      creator_id: this.state.creator_id,
-      url: this.state.url,
-      description: this.state.description,
-      collaborators: this.state.collaborators,
-      github_url: this.state.github_url,
-      experience: this.state.experience
+    event.preventDefault();
+    if (
+      this.validateNameChange(this.state.name) ||
+      this.validateURLChange(this.state.url) ||
+      this.validateDescriptionChange(this.state.description)
+    ) {
+      let sitePayload = {
+        name: this.state.name,
+        creator_id: this.state.creator_id,
+        url: this.state.url,
+        description: this.state.description,
+        collaborators: this.state.collaborators,
+        github_url: this.state.github_url,
+        experience: this.state.experience
+      }
+      this.sendInput(sitePayload)
+      this.getData()
+      this.handleClearForm()
     }
-    this.sendInput(sitePayload)
-    this.getData()
-    this.handleClearForm()
   }
 
   sendInput(sitePayload) {
@@ -76,37 +82,83 @@ class IndexContainer extends React.Component {
     })
     .then(response => response.json())
     .then(responseData => {
-      this.setState({ sites: [...this.state.sites, responseData] })
-    })
+      this.setState({ sites: [...this.state.sites, responseData] });
+    });
   }
 
   handleNameChange(event) {
-    this.setState({ name: event.target.value })
-  }
-
-  handleCreatorIdChange(event) {
-    this.setState({ creator_id: event.target.value })
+    this.validateNameChange(event.target.value);
+    this.setState({ name: event.target.value });
   }
 
   handleUrlChange(event) {
-    this.setState({ url: event.target.value })
+    this.validateURLChange(event.target.value);
+    this.setState({ url: event.target.value });
   }
 
   handleDescriptionChange(event) {
-    this.setState({ description: event.target.value })
+    this.validateDescriptionChange(event.target.value);
+    this.setState({ description: event.target.value });
   }
 
   handleCollaboratorsChange(event) {
-    this.setState({ collaborators: event.target.value })
+    this.setState({ collaborators: event.target.value });
   }
 
   handleGithubUrlChange(event) {
-    this.setState({ github_url: event.target.value })
+    this.setState({ github_url: event.target.value });
   }
 
   handleExperienceChange(event) {
-    this.setState({ experience: event.target.value })
+    this.setState({ experience: event.target.value });
   }
+
+  validateNameChange(name) {
+    if (name === '' || name === ' ') {
+      let newError = { name: 'Name should not be blank' };
+      this.setState({ errors: Object.assign(this.state.errors, newError) });
+      return false;
+    } else {
+      let errorState = this.state.errors;
+      delete errorState.name;
+      this.setState({ errors: errorState });
+      return true;
+    }
+  }
+
+
+  validateURLChange(url) {
+    if (url === '' || url === ' ') {
+      let newError = { url: 'URL should not be blank' };
+      this.setState({ errors: Object.assign(this.state.errors, newError) });
+      return false;
+    } else if ( !url.match(/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/)) {
+      let newError = { url: 'URL should be authentic' };
+      this.setState({ errors: Object.assign(this.state.errors, newError) });
+      return false;
+    } else {
+      let errorState = this.state.errors;
+      delete errorState.url;
+      this.setState({ errors: errorState });
+      return true;
+    }
+  }
+
+  validateDescriptionChange(description) {
+    if (description === '' || description === ' ') {
+      let newError = { description: 'Description should not be blank' };
+      this.setState({ errors: Object.assign(this.state.errors, newError) });
+      return false;
+    } else {
+      let errorState = this.state.errors;
+      delete errorState.description;
+      this.setState({ errors: errorState });
+      return true;
+    }
+  }
+
+
+
 
   handleFormButtonClick() {
     if (this.state.formToggle == false) {
@@ -124,19 +176,27 @@ class IndexContainer extends React.Component {
 
   render() {
     let className;
-      if (this.state.formToggle) {
-        className = 'selected'
-      } else {
-        className = 'hidden'
-      }
+    if (this.state.formToggle) {
+      className = 'selected'
+    } else {
+      className = 'hidden'
+    };
+
+    let errorDiv;
+    let errorItems;
+    if (Object.keys(this.state.errors).length > 0) {
+      errorItems = Object.values(this.state.errors).map(error => {
+        return(<li key={error}>{error}</li>)
+      });
+      errorDiv = <div className="callout alert">{errorItems}</div>
+    }
     return(
       <div>
         <center> <h1> Welcome to Appful </h1> </center>
-
+        {errorDiv}
         <NewSiteForm
           className = {className}
           handleFormButtonClick = {this.handleFormButtonClick}
-
           nameValue = {this.state.name}
           creatorValue = {this.state.creator_id}
           urlValue = {this.state.url}
