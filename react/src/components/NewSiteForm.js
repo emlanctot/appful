@@ -4,7 +4,7 @@ const NewSiteForm = (props) => {
   return(
     <div className="column row">
       <div>
-        <center> <button type="button" onClick={props.handleFormButtonClick}>Submit A New Site</button> </center>
+        <center><button type="button" className="submit-button" onClick={props.handleFormButtonClick}>Submit A New Site</button></center>
       </div>
       <form onSubmit={props.handleSubmit} className={props.className}>
         <label> Name: </label>
