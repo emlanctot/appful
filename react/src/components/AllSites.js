@@ -13,6 +13,7 @@ class AllSites extends React.Component {
       return (
         <SiteTile
           key = {site.id}
+          id = {site.id}
           name = {site.name}
           url = {site.url}
           description = {site.description}

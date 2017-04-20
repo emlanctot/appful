@@ -9,4 +9,5 @@ class SitesController < ApplicationController
     @site = Site.find(params[:id])
   end
 
+
 end

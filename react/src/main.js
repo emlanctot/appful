@@ -1,8 +1,8 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Root from './Root'
-import ShowContainer from './containers/ShowContainer'
+import Root from './Root';
+import SiteShowContainer from './containers/SiteShowContainer';
 
 
 $(function() {
@@ -14,7 +14,7 @@ $(function() {
   };
   if (document.getElementById('site-show')) {
     ReactDOM.render(
-      <ShowContainer />,
+      <SiteShowContainer />,
       document.getElementById('site-show')
     );
   }

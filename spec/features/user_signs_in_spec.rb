@@ -21,16 +21,4 @@ feature "User signs in" do
 
     expect(page).to have_content "Logged in as #{user.email}."
   end
-
-  scenario "successful logout" do
-    visit '/users/sign_in'
-
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-
-    click_button 'Log in'
-    click_link "Logout"
-
-    expect(page).to have_content "You need to sign in or sign up before continuing."
-  end
 end
