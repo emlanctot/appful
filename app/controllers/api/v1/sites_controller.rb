@@ -16,6 +16,7 @@ class Api::V1::SitesController < ApplicationController
 
   def show
     @site = Site.find(params[:id])
+    render json: @site
   end
 
   private

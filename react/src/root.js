@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router';
-import NavContainer from './containers/NavContainer'
-import IndexContainer from './containers/IndexContainer'
+import NavContainer from './containers/NavContainer';
+import IndexContainer from './containers/IndexContainer';
+import SiteShowContainer from './containers/SiteShowContainer';
 
 class Root extends Component {
   constructor(props){
@@ -14,12 +15,12 @@ class Root extends Component {
       <Router history={browserHistory}>
         <Route path="/" component={NavContainer}>
           <IndexRoute component={IndexContainer} />
-          <Route path='sites' component={IndexContainer} />
-          <Route path='sites/:id' component={IndexContainer} />
+          <Route path='sites' component={SiteShowContainer} />
+          <Route path='sites/:id' component={SiteShowContainer} />
         </Route>
       </Router>
     )
   }
 }
 
-export default Root
+export default Root;

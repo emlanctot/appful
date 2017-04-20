@@ -11,14 +11,12 @@ class NavContainer extends React.Component {
 
     return(
       <div>
-        <h1> NAVIGATION </h1>
-
+        <h1> Navigation </h1>
         {this.props.children}
-
       </div>
 
     )
   }
 }
 
-export default NavContainer
+export default NavContainer;
