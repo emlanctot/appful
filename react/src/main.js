@@ -1,11 +1,21 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import IndexContainer from './containers/IndexContainer'
+import Root from './Root'
+import ShowContainer from './containers/ShowContainer'
+
 
 $(function() {
-  ReactDOM.render(
-    <IndexContainer />,
-    document.getElementById('app')
-  );
+  if (document.getElementById('app')) {
+    ReactDOM.render(
+      <Root />,
+      document.getElementById('app')
+    );
+  };
+  if (document.getElementById('site-show')) {
+    ReactDOM.render(
+      <ShowContainer />,
+      document.getElementById('site-show')
+    );
+  }
 });

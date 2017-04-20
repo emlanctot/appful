@@ -12,6 +12,10 @@ class Api::V1::SitesController < ApplicationController
       render json: @site
     end
   end
+  
+  def show
+    @site = Site.find(params[:id])
+  end
 
   private
 
