@@ -12,10 +12,4 @@ $(function() {
       document.getElementById('app')
     );
   };
-  if (document.getElementById('site-show')) {
-    ReactDOM.render(
-      <SiteShowContainer />,
-      document.getElementById('site-show')
-    );
-  }
 });
