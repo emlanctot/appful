@@ -18,6 +18,7 @@ class Api::V1::SitesController < ApplicationController
   end
 
   def show
+    @user = current_user
     @site = Site.find(params[:id])
     render json: @site
   end

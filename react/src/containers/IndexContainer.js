@@ -8,6 +8,7 @@ class IndexContainer extends React.Component {
     this.state = {
       errors: {},
       sites: [],
+      user: [],
       name: '',
       creator_id: 1,
       url: '',
@@ -29,15 +30,25 @@ class IndexContainer extends React.Component {
 
   componentDidMount() {
     this.getData()
+    this.getUserData()
   }
 
   getData() {
-  fetch(`/api/v1/sites`)
-    .then(response => response.json())
-    .then(responseData => {
-      this.setState({ sites: responseData })
-    });
-  }
+    fetch(`/api/v1/sites`)
+      .then(response => response.json())
+      .then(responseData => {
+        this.setState({ sites: responseData })
+      });
+    }
+
+  getUserData() {
+    console.log("User data")
+    fetch(`/api/v1/users`)
+      .then(response => response.json())
+      .then(responseData => {
+        this.setState({ user: responseData })
+      });
+    }
 
   handleClearForm() {
     this.setState({
@@ -158,9 +169,6 @@ class IndexContainer extends React.Component {
     }
   }
 
-
-
-
   handleFormButtonClick() {
     if (this.state.formToggle == false) {
       this.setState({
@@ -176,6 +184,7 @@ class IndexContainer extends React.Component {
   }
 
   render() {
+  
     let className;
     if (this.state.formToggle) {
       className = 'selected'
@@ -195,7 +204,7 @@ class IndexContainer extends React.Component {
       <div>
         <center><h1>Welcome to Appful</h1></center>
         {errorDiv}
-                                                        
+
         <NewSiteForm
           className = {className}
           handleFormButtonClick = {this.handleFormButtonClick}
