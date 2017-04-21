@@ -8,5 +8,11 @@ class SitesController < ApplicationController
   def show
     @site = Site.find(params[:id])
   end
-  
+
+  def destroy
+    @site = Site.find(params[:id])
+    @site.destroy
+    redirect_to sites_path
+  end
+
 end
