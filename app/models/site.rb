@@ -1,4 +1,7 @@
 class Site < ActiveRecord::Base
+  belongs_to :user
+  has_many :reviews
+
   validates :name, presence: true
   validates :creator_id, presence: true
   validates :url, presence: true
