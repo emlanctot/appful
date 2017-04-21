@@ -17,7 +17,6 @@ class Root extends Component {
           <IndexRoute component={IndexContainer} />
           <Route path='sites' component={SiteShowContainer} />
           <Route path='sites/:id' component={SiteShowContainer} />
-  
         </Route>
       </Router>
     )

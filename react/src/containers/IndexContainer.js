@@ -158,8 +158,6 @@ class IndexContainer extends React.Component {
   }
 
 
-
-
   handleFormButtonClick() {
     if (this.state.formToggle == false) {
       this.setState({

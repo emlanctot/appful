@@ -29,7 +29,6 @@ class SiteShowContainer extends Component {
       method: "PUT",
       data: { site: site }
     })
-    componentDidMount()
   }
 
   render() {
