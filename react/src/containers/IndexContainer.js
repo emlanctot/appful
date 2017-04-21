@@ -32,7 +32,7 @@ class IndexContainer extends React.Component {
   }
 
   getData() {
-  fetch(`/api/v1/sites/`)
+  fetch(`/api/v1/sites`)
     .then(response => response.json())
     .then(responseData => {
       this.setState({ sites: responseData })
@@ -76,6 +76,7 @@ class IndexContainer extends React.Component {
   sendInput(sitePayload) {
     console.log(sitePayload)
     fetch("/api/v1/sites.json", {
+      credentials: 'same-origin',
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(sitePayload)
