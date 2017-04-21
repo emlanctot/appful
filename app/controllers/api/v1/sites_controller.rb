@@ -23,8 +23,8 @@ class Api::V1::SitesController < ApplicationController
   end
 
   def destroy
-    @site = Site.destroy(params[:id])
-    redirect_to :root
+    @site = Site.find(params[:id])
+    @site.destroy
   end
 
   private

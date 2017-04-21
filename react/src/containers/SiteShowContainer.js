@@ -27,6 +27,8 @@ class SiteShowContainer extends Component {
   }
 
   handleDelete() {
+    console.log("hi")
+    
     let siteId = this.props.params.id;
     fetch(`/api/v1/sites/${siteId}`, {
       method: "DELETE",
