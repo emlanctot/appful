@@ -3,21 +3,18 @@ import React from 'react';
 const NewReviewForm = (props) => {
   return(
     <div className="column row">
-      <div>
-        <center><button type="button" onClick={props.handleFormButtonClick}>Submit A New Review</button></center>
-      </div>
-      <form onSubmit={props.handleSubmit} className={props.className}>
+      <form onSubmit={props.handleReviewSubmit} className={props.className}>
         <label> Rating: </label>
-        <input name="rating" type="number" onChange={props.ratingChange} value={props.ratingValue}/>
+        <input name="rating" type="float" onChange={props.ratingChange} value={props.rating}/>
 
         <label> Design: </label>
-        <input name="design_body" type="text" onChange={props.designChange} value={props.urlValue}/>
+        <input name="design_body" type="text" onChange={props.designChange} value={props.design}/>
 
         <label> Usability: </label>
-        <input name="usability_body" type="text" onChange={props.usabilityChange} value={props.urlValue}/>
+        <input name="usability_body" type="text" onChange={props.usabilityChange} value={props.usability}/>
 
         <label> Concept: </label>
-        <input name="concept_body" type="text" onChange={props.conceptChange} value={props.collaboratorsValue}/>
+        <input name="concept_body" type="text" onChange={props.conceptChange} value={props.concept}/>
 
         <input type="submit" value="Submit"/>
       </form>
