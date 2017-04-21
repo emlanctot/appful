@@ -7,6 +7,7 @@ class SiteShowContainer extends Component {
     this.state = {
       site: {}
     }
+    this.handleUpdate = this.handleUpdate.bind(this)
   }
 
   componentDidMount() {
@@ -22,10 +23,20 @@ class SiteShowContainer extends Component {
       })
   }
 
+  handleUpdate(site) {
+    let siteId = this.props.params.id;
+    fetch(`/api/v1/sites/${siteId}`, {
+      method: "PUT",
+      data: { site: site }
+    })
+    componentDidMount()
+  }
+
   render() {
     return(
       <div>
         <SiteTile
+          handleUpdate = {this.handleUpdate}
           key = {this.state.site.id}
           id = {this.state.site.id}
           name = {this.state.site.name}

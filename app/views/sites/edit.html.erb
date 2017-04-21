@@ -1,0 +1,26 @@
+
+<%= form_tag sites_path(@site), method: "put" do %>
+
+  <label>Site Name:</label><br>
+  <%= text_field_tag :name, @site.name %> <br>
+
+  <label>Site URL:</label><br>
+  <%= text_field_tag :url, @site.url %> <br>
+
+  <label>Site Description</label><br>
+  <%= text_area_tag :description, @site.description %><br>
+
+  <label>Collaborators:</label><br>
+  <%= text_field_tag :collaborators, @site.collaborators %> <br>
+
+  <label>GitHub URL:</label><br>
+  <%= text_field_tag :github_url, @site.github_url %> <br>
+
+  <label>Experience:</label><br>
+  <%= text_field_tag :experience, @site.experience %> <br>
+
+  <%= submit_tag "Save Changes" %>
+<% end %>
+
+<div id='app'>
+</div>

@@ -7,7 +7,6 @@ class Api::V1::SitesController < ApplicationController
   end
 
   def create
-    before_action :authenticate_user!
     @site = Site.create(site_params)
     if @site.save!
       render json: @site
@@ -17,6 +16,19 @@ class Api::V1::SitesController < ApplicationController
   def show
     @site = Site.find(params[:id])
     render json: @site
+  end
+
+  def edit
+    binding.pry
+    @site = Site.find(params[:id])
+  end
+
+  def update
+    @site = Site.find(params[:id])
+    @site.update(site_params)
+    render :edit
+    redirect_to edit_site_path(@site)
+
   end
 
   private

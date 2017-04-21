@@ -8,5 +8,17 @@ class SitesController < ApplicationController
   def show
     @site = Site.find(params[:id])
   end
-  
+
+  def edit
+    @site = Site.find(params[:id])
+  end
+
+  def update
+    @site = Site.find(params[:id])
+    @site.update(site_params)
+    render :edit
+    redirect_to edit_site_path(@site)
+
+  end
+
 end
