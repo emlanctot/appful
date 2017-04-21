@@ -127,7 +127,6 @@ class IndexContainer extends React.Component {
     }
   }
 
-
   validateURLChange(url) {
     if (url === '' || url === ' ') {
       let newError = { url: 'URL should not be blank' };
@@ -157,9 +156,6 @@ class IndexContainer extends React.Component {
       return true;
     }
   }
-
-
-
 
   handleFormButtonClick() {
     if (this.state.formToggle == false) {
@@ -195,7 +191,7 @@ class IndexContainer extends React.Component {
       <div>
         <center><h1>Welcome to Appful</h1></center>
         {errorDiv}
-                                                        
+
         <NewSiteForm
           className = {className}
           handleFormButtonClick = {this.handleFormButtonClick}
