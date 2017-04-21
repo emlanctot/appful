@@ -32,7 +32,7 @@ class IndexContainer extends React.Component {
   }
 
   getData() {
-  fetch(`/api/v1/sites/`)
+  fetch(`/api/v1/sites`)
     .then(response => response.json())
     .then(responseData => {
       this.setState({ sites: responseData })
@@ -194,7 +194,7 @@ class IndexContainer extends React.Component {
       <div>
         <center><h1>Welcome to Appful</h1></center>
         {errorDiv}
-                                                        
+
         <NewSiteForm
           className = {className}
           handleFormButtonClick = {this.handleFormButtonClick}

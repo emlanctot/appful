@@ -7,8 +7,6 @@ class Api::V1::SitesController < ApplicationController
   end
 
   def create
-    @current = current_user
-    binding.pry
     @site = Site.create(site_params)
     if @site.save!
       render json: @site
@@ -21,7 +19,6 @@ class Api::V1::SitesController < ApplicationController
   end
 
   def edit
-    binding.pry
     @site = Site.find(params[:id])
   end
 
