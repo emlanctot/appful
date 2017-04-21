@@ -42,24 +42,7 @@ class SiteShowContainer extends Component {
       })
   }
 
-  // handleReviewSubmit(event) {
-  //   event.preventDefault();
-  //     let sitePayload = {
-  //       overall_rating: this.state.overall_rating,
-  //       user_id: this.state.user_id,
-  //       site_id: this.state.site_id,
-  //       votes: this.state.votes,
-  //       design_body: this.state.design_body,
-  //       usability_body: this.state.usability_body,
-  //       concept_body: this.state.concept_body
-  //     }
-  //     this.sendInput(sitePayload)
-  //     this.getData()
-  //     this.handleClearForm()
-  // }
-
   render() {
-    debugger;
     return(
       <div>
         <div>
