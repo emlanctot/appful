@@ -15,7 +15,9 @@ RSpec.describe Review, type: :model do
       user_id: 1,
       id: 1,
       url: "google.com",
-      description: 'This is a description. This is a description. This is a description. This is a description. This is a description. This is a description.'
+      description: 'This is a description. This is a description.
+      This is a description. This is a description. This is a description.
+      This is a description.'
     )
     Review.create(
       overall_rating: 3.3,
