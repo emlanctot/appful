@@ -20,12 +20,12 @@ class Api::V1::SitesController < ApplicationController
 
   def edit
     @site = Site.find(params[:id])
+    render :update
   end
 
   def update
     @site = Site.find(params[:id])
     @site.update(site_params)
-    render :edit
     redirect_to edit_site_path(@site)
 
   end

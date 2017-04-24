@@ -8,7 +8,10 @@ const SiteTile = (props) => {
       <img src="https://idagram.files.wordpress.com/2012/12/skjermbilde-2012-12-09-kl-17-38-00.png" width="400"/>
       <p> URL: <a href="${props.url}">{props.url}</a> </p>
       <p> {props.description} </p>
-      <Link to={`/sites/${props.id}/edit`}> <button type="button" onClick={props.handleUpdate}>Edit This Post</button> </Link>
+
+
+      <a href={`/sites/${props.id}/edit`} onClick={props.handleUpdate}> Edit Post </a>
+
     </div>
   )
 }
