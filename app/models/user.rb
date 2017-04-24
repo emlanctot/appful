@@ -10,7 +10,5 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true
   validates :country, presence: true
-
   # has_many :sites, foreign_key: "creator_id", class_name: "Site"
-
 end

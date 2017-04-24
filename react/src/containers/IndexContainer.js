@@ -28,24 +28,24 @@ class IndexContainer extends React.Component {
   }
 
   componentDidMount() {
-    this.getData()
-    this.getUserData()
+    this.getData();
+    this.getUserData();
   }
 
   getData() {
     fetch(`/api/v1/sites`)
       .then(response => response.json())
       .then(responseData => {
-        this.setState({ sites: responseData })
+        this.setState({ sites: responseData });
       });
     }
 
   getUserData() {
-    console.log("User data")
+    console.log("User data");
     fetch(`/api/v1/users`)
       .then(response => response.json())
       .then(responseData => {
-        this.setState({ user: responseData })
+        this.setState({ user: responseData });
       });
     }
 
@@ -69,7 +69,6 @@ class IndexContainer extends React.Component {
     ) {
     let user = this.props.user
     let user_id = +(user)
-    debugger;
     let sitePayload = {
         name: this.state.name,
         creator_id: user_id,
