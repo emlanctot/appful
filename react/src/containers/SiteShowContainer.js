@@ -11,7 +11,7 @@ class SiteShowContainer extends Component {
       site: {},
       reviews: [],
       overall_rating: '',
-      user_id: 2,
+      user_id: 3,
       site_id: '',
       votes: 0,
       design_body: '',
