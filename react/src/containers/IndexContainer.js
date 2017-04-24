@@ -67,8 +67,8 @@ class IndexContainer extends React.Component {
       this.validateURLChange(this.state.url) ||
       this.validateDescriptionChange(this.state.description)
     ) {
-    let user = this.props.user
-    let user_id = +(user)
+    let user = this.props.user;
+    let user_id = +(user);
     let sitePayload = {
         name: this.state.name,
         creator_id: user_id,
