@@ -2,10 +2,24 @@ require 'spec_helper'
 
 feature "User sees the reviews belonging to a site" do
   let(:site) do
-    Site.create(id: 1, name: "Appful", user_id: 1, description: "Appful is an application that allows users to submit their app for review by the Appful community. Appful is an application that allows users to submit their app for review by the Appful community.", url: "www.appful.com")
+    Site.create(
+      id: 1,
+      name: "Appful",
+      user_id: 1,
+      description: "Appful is an application that allows users to submit their
+      app for review by the Appful community. Appful is an application that
+      allows users to submit their app for review by the Appful community.",
+      url: "www.appful.com"
+    )
   end
   let(:user) do
-    User.create(id: 1, username: "jarlax3", avatar_url: "https://avatars2.githubusercontent.com/u/174825?v=3&s=400", email: "jarlax3@launchacademy.com", password: 'password', country: 'United States'
+    User.create(
+      id: 1,
+      username: "jarlax3",
+      avatar_url: "https://avatars2.githubusercontent.com/u/174825?v=3&s=400",
+      email: "jarlax3@launchacademy.com",
+      password: 'password',
+      country: 'United States'
     )
   end
   let(:review) do
@@ -17,5 +31,4 @@ feature "User sees the reviews belonging to a site" do
 
     expect(page).to have_content `#{review.overall_rating}`
   end
-
 end
