@@ -14,12 +14,15 @@ class SitesController < ApplicationController
   end
 
   def update
-    binding.pry
     @site = Site.find(params[:id])
     @site.update(site_params)
-    binding.pry
-    render :edit
-    redirect_to edit_site_path(@site)
+    redirect_to site_path(@site)
+  end
+
+  private
+
+  def site_params
+    params.(:site).permit(:name, :creator_id, :url, :description, :collaborators, :github_url, :experience, :created_at, :updated_at)
   end
 
 end

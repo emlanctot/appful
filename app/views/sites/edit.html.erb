@@ -1,4 +1,4 @@
-<%= form_for sites_path(@site), :url => edit_site_path(@site), method: "put" do %>
+<%= form_for @site, :url => site_path(@site), method: "put" do %>
 
   <label>Site Name:</label><br>
   <%= text_field_tag :name, @site.name %> <br>

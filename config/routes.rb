@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   get 'sites/:id/edit', to: 'sites#edit', as: :edit_site
-  put 'sites/:id', to: 'sites#update', :as => 'update_site'
+  put 'sites/:id', to: 'sites#update', as: :update_site
+
+  resources :sites
 
   namespace :api do
     namespace :v1 do

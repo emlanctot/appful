@@ -19,6 +19,6 @@ feature "User signs in" do
 
     click_button 'Log in'
 
-    expect(page).to have_content "Logged in as #{user.email}."
+    expect(page).to have_content `Logged in as #{user.email}.`
   end
 end
