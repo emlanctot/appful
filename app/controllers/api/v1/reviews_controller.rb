@@ -8,11 +8,15 @@ class Api::V1::ReviewsController < ApplicationController
   end
 
   def create
-    @site = Site.find(params[:site_id])
-    @review = Review.create(review_params)
-    @review.site = @site
-    if @review.save!
-      render json: @site
+    if user_signed_in?
+      @site = Site.find(params[:site_id])
+      @review = Review.create(review_params)
+      @review.site = @site
+      if @review.save!
+        render json: @site
+      end
+    else
+      flash[:error] = "Error"
     end
   end
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const NewSiteForm = (props) => {
   return(
@@ -31,4 +31,4 @@ const NewSiteForm = (props) => {
   )
 }
 
-export default NewSiteForm
+export default NewSiteForm;
