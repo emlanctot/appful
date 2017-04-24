@@ -11,7 +11,6 @@ class SiteShowContainer extends Component {
       site: {},
       reviews: [],
       overall_rating: '',
-      user_id: '',
       site_id: '',
       votes: 0,
       design_body: '',
@@ -23,7 +22,6 @@ class SiteShowContainer extends Component {
     this.handleDelete = this.handleDelete.bind(this);
     this.handleFormButtonClick = this.handleFormButtonClick.bind(this);
     this.handleRatingChange = this.handleRatingChange.bind(this);
-    this.handleUserIdChange = this.handleUserIdChange.bind(this);
     this.handleDesignChange = this.handleDesignChange.bind(this);
     this.handleConceptChange = this.handleConceptChange.bind(this);
     this.handleUsabilityChange = this.handleUsabilityChange.bind(this);
@@ -32,8 +30,8 @@ class SiteShowContainer extends Component {
   }
 
   componentDidMount() {
-    this.getSiteData();
-    this.getReviewData();
+    this.getSiteData()
+    this.getReviewData()
   }
 
   getSiteData() {
@@ -48,21 +46,24 @@ class SiteShowContainer extends Component {
     });
   }
 
+  getReviewData() {
+    let siteId = this.props.params.id
+    fetch(`/api/v1/sites/${siteId}/reviews`, {
+      method: 'GET',
+      credentials: 'include'
+    })
+    .then(response => response.json())
+    .then(responseData => {
+      this.setState({ reviews: responseData })
+    });
+  }
+
   handleDelete() {
     let siteId = this.props.params.id;
     fetch(`/api/v1/sites/${siteId}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" }
     })
-  }
-
-  getReviewData() {
-    let siteId = this.props.params.id;
-    fetch(`/api/v1/sites/${siteId}/reviews`)
-      .then(response => response.json())
-      .then(responseData => {
-        this.setState({ reviews: responseData })
-      })
   }
 
   handleFormButtonClick() {
@@ -81,10 +82,6 @@ class SiteShowContainer extends Component {
     this.setState({ overall_rating: event.target.value });
   }
 
-  handleUserIdChange(event) {
-    this.setState({ user_id: event.target.value });
-  }
-
   handleDesignChange(event) {
     this.setState({ design_body: event.target.value });
   }
@@ -99,31 +96,27 @@ class SiteShowContainer extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-      let reviewPayload = {
-        user_id: this.state.user_id,
-        overall_rating: this.state.overall_rating,
-        concept_body: this.state.concept_body,
-        design_body: this.state.design_body,
-        usability_body: this.state.usability_body
-      }
-      this.sendInput(reviewPayload);
-      this.getReviewData();
-      this.handleClearForm();
+    let reviewPayload = {
+      user_id: 1,
+      overall_rating: this.state.overall_rating,
+      concept_body: this.state.concept_body,
+      design_body: this.state.design_body,
+      usability_body: this.state.usability_body
+    }
+    this.sendInput(reviewPayload);
+    this.getReviewData();
+    this.handleClearForm();
   }
 
   sendInput(reviewPayload) {
     console.log(reviewPayload)
     let siteId = this.props.params.id;
     fetch(`/api/v1/sites/${siteId}/reviews`, {
-      credentials: 'same-origin',
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(reviewPayload)
     })
-    .then(response => response.json())
-    .then(responseData => {
-      this.setState({ reviews: [...this.state.reviews, responseData] });
-    });
+
   }
 
   handleClearForm() {
@@ -135,7 +128,6 @@ class SiteShowContainer extends Component {
       usability_body: '',
     })
   }
-
 
   render() {
     let className;
