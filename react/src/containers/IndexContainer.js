@@ -139,7 +139,6 @@ class IndexContainer extends React.Component {
     }
   }
 
-
   validateURLChange(url) {
     if (url === '' || url === ' ') {
       let newError = { url: 'URL should not be blank' };

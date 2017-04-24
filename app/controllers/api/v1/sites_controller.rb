@@ -20,6 +20,7 @@ class Api::V1::SitesController < ApplicationController
   def show
     @user = current_user
     @site = Site.find(params[:id])
+    @reviews = @site.reviews
     render json: @site
   end
 
@@ -35,5 +36,4 @@ class Api::V1::SitesController < ApplicationController
   def site_params
     params.permit(:name, :creator_id, :url, :description, :collaborators, :github_url, :experience, :created_at, :updated_at)
   end
-
 end
