@@ -3,12 +3,12 @@ require 'rails_helper'
 RSpec.describe Review, type: :model do
   let(:review) do
     User.create(
-    id: 1,
-    username: "jarlax3",
-    avatar_url: "https://avatars2.githubusercontent.com/u/174825?v=3&s=400",
-    email: "jarlax3@launchacademy.com",
-    password: 'password',
-    country: 'United States'
+      id: 1,
+      username: "jarlax3",
+      avatar_url: "https://avatars2.githubusercontent.com/u/174825?v=3&s=400",
+      email: "jarlax3@launchacademy.com",
+      password: 'password',
+      country: 'United States'
     )
     Site.create(
       name: "Google",
@@ -18,13 +18,13 @@ RSpec.describe Review, type: :model do
       description: 'This is a description. This is a description. This is a description. This is a description. This is a description. This is a description.'
     )
     Review.create(
-    overall_rating: 3.3,
-    user_id: 1,
-    site_id: 1,
-    design_body: 'Design body',
-    usability_body: 'Usability body',
-    concept_body: 'Concept body'
-)
+      overall_rating: 3.3,
+      user_id: 1,
+      site_id: 1,
+      design_body: 'Design body',
+      usability_body: 'Usability body',
+      concept_body: 'Concept body'
+    )
   end
 
   it 'is valid with valid attributes' do
