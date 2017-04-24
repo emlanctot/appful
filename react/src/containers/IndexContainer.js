@@ -60,7 +60,7 @@ class IndexContainer extends React.Component {
     ) {
       let sitePayload = {
         name: this.state.name,
-        creator_id: this.state.creator_id,
+        user_id: this.state.creator_id,
         url: this.state.url,
         description: this.state.description,
         collaborators: this.state.collaborators,

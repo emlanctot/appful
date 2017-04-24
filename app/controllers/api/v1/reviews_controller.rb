@@ -4,7 +4,7 @@ class Api::V1::ReviewsController < ApplicationController
   def index
     @site = Site.find(params[:site_id])
     @reviews = @site.reviews
-      render json: @reviews
+    render json: @reviews
   end
 
   def create
@@ -25,4 +25,5 @@ class Api::V1::ReviewsController < ApplicationController
   def review_params
     params.permit(:user_id, :overall_rating, :site_id, :votes, :design_body, :usability_body, :concept_body)
   end
+
 end
