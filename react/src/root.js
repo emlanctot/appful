@@ -14,7 +14,7 @@ class Root extends Component {
     return(
       <Router history={browserHistory}>
         <Route path="/" component={NavContainer}>
-          <IndexRoute component={IndexContainer} />
+          <IndexRoute component={() => (<IndexContainer user={this.props.user} />)}/>
           <Route path='sites' component={SiteShowContainer} />
           <Route path='sites/:id' component={SiteShowContainer} />
         </Route>

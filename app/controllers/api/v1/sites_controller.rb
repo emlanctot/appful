@@ -24,8 +24,10 @@ class Api::V1::SitesController < ApplicationController
   end
 
   def destroy
-    @site = Site.find(params[:id])
-    @site.destroy
+    if user_signed_in?
+      @site = Site.find(params[:id])
+      @site.destroy
+    end
   end
 
   private

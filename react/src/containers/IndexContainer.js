@@ -10,7 +10,6 @@ class IndexContainer extends React.Component {
       sites: [],
       user: [],
       name: '',
-      creator_id: 1,
       url: '',
       description: '',
       collaborators: '',
@@ -53,7 +52,6 @@ class IndexContainer extends React.Component {
   handleClearForm() {
     this.setState({
       name: '',
-      creator_id: 1,
       url: '',
       description: '',
       collaborators: '',
@@ -69,10 +67,12 @@ class IndexContainer extends React.Component {
       this.validateURLChange(this.state.url) ||
       this.validateDescriptionChange(this.state.description)
     ) {
-      debugger;
+    let user = this.props.user
+    let user_id = +(user)
+    debugger;
     let sitePayload = {
         name: this.state.name,
-        creator_id: this.props.user,
+        creator_id: user_id,
         url: this.state.url,
         description: this.state.description,
         collaborators: this.state.collaborators,
