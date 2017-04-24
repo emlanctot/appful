@@ -34,4 +34,4 @@ RSpec.describe User, type: :model do
     user.country = nil
     expect(user).to_not be_valid
   end
-end 
+end  
