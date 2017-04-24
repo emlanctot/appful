@@ -69,9 +69,10 @@ class IndexContainer extends React.Component {
       this.validateURLChange(this.state.url) ||
       this.validateDescriptionChange(this.state.description)
     ) {
-      let sitePayload = {
+      debugger;
+    let sitePayload = {
         name: this.state.name,
-        creator_id: this.state.creator_id,
+        creator_id: this.props.user,
         url: this.state.url,
         description: this.state.description,
         collaborators: this.state.collaborators,
@@ -184,7 +185,7 @@ class IndexContainer extends React.Component {
   }
 
   render() {
-  
+
     let className;
     if (this.state.formToggle) {
       className = 'selected'

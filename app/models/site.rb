@@ -4,4 +4,6 @@ class Site < ActiveRecord::Base
   validates :url, presence: true
   validates :description, presence: true, length: { minimum: 50, maximum: 500 }
 
+  # belongs_to :user, class_name: "User"
+
 end

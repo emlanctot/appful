@@ -5,6 +5,12 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  helper_method :current_user
+
+  def current_user
+    @current_user ||= User.find_by(id: session[:user])
+  end
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :avatar_url, :city, :state, :country, :github_url, :personal_url])
   end
