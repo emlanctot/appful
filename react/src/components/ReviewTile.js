@@ -12,7 +12,7 @@ class ReviewTile extends React.Component {
   }
 
   handleUpvote() {
-    let value = this.state.vote_count + 1;
+    let value = this.state.vote_count += 1;
     let id = this.props.id;
     this.setState({ vote_count: value });
     let votePayload = {
@@ -29,7 +29,7 @@ class ReviewTile extends React.Component {
   }
 
   handleDownvote() {
-    let value = this.state.vote_count - 1;
+    let value = this.state.vote_count -= 1;
     let id = this.props.id;
     this.setState({ vote_count: value });
     let votePayload = {
@@ -56,12 +56,11 @@ class ReviewTile extends React.Component {
   }
 
   render() {
-
   return(
     <div>
       <button onClick={this.handleUpvote} className="button" id="upvote">Upvote</button>
       <p> {this.state.vote_count} </p>
-      <button  className="button" id="downvote">Downvote</button>
+      <button onClick={this.handleDownvote} className="button" id="downvote">Downvote</button>
 
       <h3> Rating: {this.props.overall_rating} </h3>
       <p> Creator: Some person here </p>

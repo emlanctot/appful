@@ -1,5 +1,5 @@
 class Api::V1::ReviewsController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: [:create, :update]
+  skip_before_action :verify_authenticity_token
 
   def index
     @site = Site.find(params[:site_id])
@@ -9,13 +9,12 @@ class Api::V1::ReviewsController < ApplicationController
   end
 
   def create
-    binding.pry
     @review = Review.new(review_params)
-    @review.user_id = @current_user.id
+    @review.user_id = current_user.id
     @site = Site.find(params[:site_id])
     @review.site = @site
     if @review.save!
-      render json: @site
+      render json: @review
     end
   end
 

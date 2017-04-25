@@ -27,20 +27,17 @@ class SiteShowContainer extends Component {
     this.handleUsabilityChange = this.handleUsabilityChange.bind(this);
     this.handleClearForm = this.handleClearForm.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleUpvote = this.handleUpvote.bind(this);
-    this.handleDownvote = this.handleDownvote.bind(this);
   }
 
   componentDidMount() {
-    this.getSiteData()
-    this.getReviewData()
+    this.getSiteData();
+    this.getReviewData();
   }
 
   getSiteData() {
     let siteId = this.props.params.id
     fetch(`/api/v1/sites/${siteId}`, {
-      method: 'GET',
-      credentials: 'include'
+      method: 'GET'
     })
     .then(response => response.json())
     .then(responseData => {
@@ -51,8 +48,7 @@ class SiteShowContainer extends Component {
   getReviewData() {
     let siteId = this.props.params.id
     fetch(`/api/v1/sites/${siteId}/reviews`, {
-      method: 'GET',
-      credentials: 'include'
+      method: 'GET'
     })
     .then(response => response.json())
     .then(responseData => {
@@ -114,10 +110,15 @@ class SiteShowContainer extends Component {
     console.log(reviewPayload)
     let siteId = this.props.params.id;
     fetch(`/api/v1/sites/${siteId}/reviews`, {
+      credentials: "same-origin",
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(reviewPayload)
     })
+    .then(response => response.json())
+    .then(responseData => {
+      this.setState({ reviews: [...this.state.reviews, responseData] });
+    });
   }
 
   handleClearForm() {
@@ -126,47 +127,10 @@ class SiteShowContainer extends Component {
       overall_rating: '',
       concept_body: '',
       design_body: '',
-      usability_body: '',
+      usability_body: ''
     })
   }
 
-  // handleUpdate(review_id, vote) {
-  //   let votePayload = {
-  //     review_id: review_id,
-  //     true_or_false: vote
-  //   }
-  //   this.sendVote(votePayload);
-  // }
-
-  handleUpvote(id) {
-    let value = this.state.vote_count + 1;
-    this.setState({ vote_count: value });
-    let votePayload = {
-      vote_count: this.state.vote_count,
-      review_id: id
-    }
-    this.sendVote(votePayload);
-  }
-
-  handleDownvote(id) {
-    let value = this.state.vote_count - 1;
-    this.setState({ vote_count: value });
-    let votePayload = {
-      vote_count: this.state.vote_count,
-      review_id: id
-    }
-    this.sendVote(votePayload);
-  }
-
-  sendVote(votePayload) {
-    let siteId = this.props.params.id;
-    let reviewId = votePayload.review_id;
-    fetch(`/api/v1/sites/${siteId}/reviews/${reviewId}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(votePayload)
-    })
-  }
 
   render() {
     let className;
