@@ -2,11 +2,11 @@ import React from 'react'
 
 const NewSiteForm = (props) => {
   return(
-    <div className="column row">
+    <div className="column row submit-app">
       <div>
-        <center> <button type="button" onClick={props.handleFormButtonClick}>Submit A New Site</button> </center>
+        <center> <button type="button" onClick={props.handleFormButtonClick}>Submit an App</button> </center>
       </div>
-      <form onSubmit={props.handleSubmit} className={props.className}>
+      <form onSubmit={props.handleSubmit} className={props.className} id="new-site">
         <label> Name: </label>
         <input name="name" type="text" onChange={props.nameChange} value={props.nameValue}/>
 
