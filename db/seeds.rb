@@ -7,4 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Site.create(name: "Appful", creator_id: 1, url: "www.appful.com", description: "Appful is an application that allows users to submit their app for review by the Appful community. Appful is an application that allows users to submit their app for review by the Appful community.", collaborators: "John Doe. Jane Doe.", github_url: "https://github.com/emlanctot/appful", experience: "Beginner")
+Site.create(name: "Appful", user_id: 1, url: "www.appful.com", description: "Appful is an application that allows users to submit their app for review by the Appful community. Appful is an application that allows users to submit their app for review by the Appful community.", collaborators: "John Doe. Jane Doe.", github_url: "https://github.com/emlanctot/appful", experience: "Beginner")

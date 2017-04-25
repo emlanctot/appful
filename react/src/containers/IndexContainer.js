@@ -9,7 +9,7 @@ class IndexContainer extends React.Component {
       errors: {},
       sites: [],
       name: '',
-      creator_id: 1,
+      user_id: 1,
       url: '',
       description: '',
       collaborators: '',
@@ -42,7 +42,7 @@ class IndexContainer extends React.Component {
   handleClearForm() {
     this.setState({
       name: '',
-      creator_id: 1,
+      user_id: 1,
       url: '',
       description: '',
       collaborators: '',
@@ -60,7 +60,7 @@ class IndexContainer extends React.Component {
     ) {
       let sitePayload = {
         name: this.state.name,
-        creator_id: this.state.creator_id,
+        user_id: this.state.user_id,
         url: this.state.url,
         description: this.state.description,
         collaborators: this.state.collaborators,
@@ -196,7 +196,7 @@ class IndexContainer extends React.Component {
           className = {className}
           handleFormButtonClick = {this.handleFormButtonClick}
           nameValue = {this.state.name}
-          creatorValue = {this.state.creator_id}
+          creatorValue = {this.state.user_id}
           urlValue = {this.state.url}
           descriptionValue = {this.state.description}
           collaboratorsValue = {this.state.collaborators}
