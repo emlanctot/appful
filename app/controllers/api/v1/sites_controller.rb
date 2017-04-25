@@ -7,7 +7,6 @@ class Api::V1::SitesController < ApplicationController
   end
 
   def create
-
     if user_signed_in?
       @site = Site.create(site_params)
       if @site.save!
