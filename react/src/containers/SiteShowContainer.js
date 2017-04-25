@@ -16,9 +16,9 @@ class SiteShowContainer extends Component {
       design_body: '',
       usability_body: '',
       concept_body: '',
-      formToggle: false
+      formToggle: false,
+      vote_count: 0
     }
-
     this.handleDelete = this.handleDelete.bind(this);
     this.handleFormButtonClick = this.handleFormButtonClick.bind(this);
     this.handleRatingChange = this.handleRatingChange.bind(this);
@@ -27,6 +27,8 @@ class SiteShowContainer extends Component {
     this.handleUsabilityChange = this.handleUsabilityChange.bind(this);
     this.handleClearForm = this.handleClearForm.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleUpvote = this.handleUpvote.bind(this);
+    this.handleDownvote = this.handleDownvote.bind(this);
   }
 
   componentDidMount() {
@@ -116,7 +118,6 @@ class SiteShowContainer extends Component {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(reviewPayload)
     })
-
   }
 
   handleClearForm() {
@@ -126,6 +127,44 @@ class SiteShowContainer extends Component {
       concept_body: '',
       design_body: '',
       usability_body: '',
+    })
+  }
+
+  // handleUpdate(review_id, vote) {
+  //   let votePayload = {
+  //     review_id: review_id,
+  //     true_or_false: vote
+  //   }
+  //   this.sendVote(votePayload);
+  // }
+
+  handleUpvote(id) {
+    let value = this.state.vote_count + 1;
+    this.setState({ vote_count: value });
+    let votePayload = {
+      vote_count: this.state.vote_count,
+      review_id: id
+    }
+    this.sendVote(votePayload);
+  }
+
+  handleDownvote(id) {
+    let value = this.state.vote_count - 1;
+    this.setState({ vote_count: value });
+    let votePayload = {
+      vote_count: this.state.vote_count,
+      review_id: id
+    }
+    this.sendVote(votePayload);
+  }
+
+  sendVote(votePayload) {
+    let siteId = this.props.params.id;
+    let reviewId = votePayload.review_id;
+    fetch(`/api/v1/sites/${siteId}/reviews/${reviewId}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(votePayload)
     })
   }
 

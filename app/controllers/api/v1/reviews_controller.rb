@@ -1,5 +1,5 @@
 class Api::V1::ReviewsController < ApplicationController
-  skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token, only: [:create, :update]
 
   def index
     @site = Site.find(params[:site_id])
@@ -9,22 +9,32 @@ class Api::V1::ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(review_params)
     binding.pry
+    @review = Review.new(review_params)
     @review.user_id = @current_user.id
-
     @site = Site.find(params[:site_id])
     @review.site = @site
     if @review.save!
       render json: @site
     end
+  end
 
+  def edit
+    @review = Review.find(params[:id])
+  end
+
+  def update
+    @review = Review.find(params[:id])
+    @review.update(review_params)
+    if @review.save!
+      render json: @review
+    end
   end
 
   private
 
   def review_params
-    params.permit(:user_id, :overall_rating, :site_id, :votes, :design_body, :usability_body, :concept_body)
+    params.permit(:id, :overall_rating, :user_id, :site_id, :vote_count, :design_body, :usability_body, :concept_body)
   end
 
 end
