@@ -11,4 +11,7 @@ class User < ApplicationRecord
   validates :password, presence: true
   validates :country, presence: true
 
+  def admin?
+    admin == true
+  end
 end
