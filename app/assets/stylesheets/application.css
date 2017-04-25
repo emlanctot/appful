@@ -61,3 +61,10 @@ textarea:focus {
 .columns {
   padding: 10px;
 }
+
+#nav-bar {
+  overflow: hidden;
+  border-bottom: 1px solid black;
+  left: 0;
+  right: 0;
+}

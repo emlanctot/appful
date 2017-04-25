@@ -189,7 +189,6 @@ class IndexContainer extends React.Component {
     }
     return(
       <div>
-        <center><h1>Welcome to Appful</h1></center>
         {errorDiv}
 
         <NewSiteForm
