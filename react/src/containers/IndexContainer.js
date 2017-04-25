@@ -76,6 +76,7 @@ class IndexContainer extends React.Component {
   sendInput(sitePayload) {
     console.log(sitePayload)
     fetch("/api/v1/sites.json", {
+      credentials: 'same-origin',
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(sitePayload)
@@ -126,7 +127,6 @@ class IndexContainer extends React.Component {
     }
   }
 
-
   validateURLChange(url) {
     if (url === '' || url === ' ') {
       let newError = { url: 'URL should not be blank' };
@@ -156,7 +156,6 @@ class IndexContainer extends React.Component {
       return true;
     }
   }
-
 
   handleFormButtonClick() {
     if (this.state.formToggle == false) {
@@ -203,7 +202,6 @@ class IndexContainer extends React.Component {
           collaboratorsValue = {this.state.collaborators}
           githubUrlValue = {this.state.github_url}
           experienceValue = {this.state.experience}
-
           nameChange = {this.handleNameChange}
           creatorChange = {this.handleCreatorIdChange}
           urlChange = {this.handleUrlChange}
@@ -211,16 +209,13 @@ class IndexContainer extends React.Component {
           collaboratorsChange = {this.handleCollaboratorsChange}
           githubUrlChange = {this.handleGithubUrlChange}
           experienceChange = {this.handleExperienceChange}
-
           handleSubmit = {this.handleSubmit}
         />
-
         <div className="column row">
           <AllSites
             sites = {this.state.sites}
           />
         </div>
-
       </div>
 
     )

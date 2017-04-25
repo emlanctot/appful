@@ -7,14 +7,19 @@ class Api::V1::SitesController < ApplicationController
   end
 
   def create
-    @site = Site.create(site_params)
-    if @site.save!
-      render json: @site
+    if user_signed_in?
+      @site = Site.create(site_params)
+      if @site.save!
+        render json: @site
+      end
+    else
+      flash[:error] = "Error"
     end
   end
 
   def show
     @site = Site.find(params[:id])
+    @reviews = @site.reviews
     render json: @site
   end
 
@@ -27,7 +32,11 @@ class Api::V1::SitesController < ApplicationController
     @site = Site.find(params[:id])
     @site.update(site_params)
     redirect_to edit_site_path(@site)
+  end
 
+  def destroy
+    @site = Site.find(params[:id])
+    @site.destroy
   end
 
   private
@@ -35,5 +44,4 @@ class Api::V1::SitesController < ApplicationController
   def site_params
     params.permit(:name, :creator_id, :url, :description, :collaborators, :github_url, :experience, :created_at, :updated_at)
   end
-
 end
