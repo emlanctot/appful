@@ -107,7 +107,7 @@ class SiteShowContainer extends Component {
   }
 
   sendInput(reviewPayload) {
-    console.log(reviewPayload)
+    console.log(reviewPayload);
     let siteId = this.props.params.id;
     fetch(`/api/v1/sites/${siteId}/reviews`, {
       credentials: "same-origin",
@@ -128,17 +128,17 @@ class SiteShowContainer extends Component {
       concept_body: '',
       design_body: '',
       usability_body: ''
-    })
+    });
   }
 
 
   render() {
     let className;
     if (this.state.formToggle) {
-      className = 'selected'
+      className = 'selected';
     } else {
-      className = 'hidden'
-    };
+      className = 'hidden';
+    }
 
     let errorDiv;
     let errorItems;
