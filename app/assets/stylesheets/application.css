@@ -15,10 +15,31 @@
  *= require foundation_and_overrides
 
  */
+ @import url('https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono');
 
 .hidden {
   display: none;
 }
+.welcomeTitle {
+  color: #505050;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+}
+
+h3 {
+  color: white;
+  font-family: 'Ubuntu Mono', monospace;
+}
+
+p {
+  color: #505050;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+a {
+  color:white;
+}
+
 #new-site {
   width: 500px;
   border: 2px solid black;
@@ -57,7 +78,14 @@ textarea:focus {
 .columns {
   padding: 10px;
 }
-.site-boxes {
+.sites-boxes {
+  background-color: #45c09d;
   padding: 30px 40px 40px 30px;
-  width: 300px;
+  width: 600px;
+  height: 500px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+.row {
+  max-width: 2000px;
 }

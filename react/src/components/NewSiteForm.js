@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const NewSiteForm = (props) => {
   return(
@@ -25,10 +25,10 @@ const NewSiteForm = (props) => {
         <label> Experience: </label>
         <input name="experience" type="text" onChange={props.experienceChange} value={props.experienceValue}/>
 
-        <input type="submit" value="submit"/>
+        <input type="submit" value="Submit"/>
       </form>
     </div>
   )
 }
 
-export default NewSiteForm
+export default NewSiteForm;
