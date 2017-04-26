@@ -65,7 +65,8 @@ class IndexContainer extends React.Component {
         description: this.state.description,
         collaborators: this.state.collaborators,
         github_url: this.state.github_url,
-        experience: this.state.experience
+        experience: this.state.experience,
+        image: this.state.image
       }
       this.sendInput(sitePayload)
       this.getData()
@@ -74,7 +75,6 @@ class IndexContainer extends React.Component {
   }
 
   sendInput(sitePayload) {
-    console.log(sitePayload)
     fetch("/api/v1/sites.json", {
       credentials: 'same-origin',
       method: "POST",

@@ -25,6 +25,9 @@ const NewSiteForm = (props) => {
         <label> Experience: </label>
         <input name="experience" type="text" onChange={props.experienceChange} value={props.experienceValue}/>
 
+        <label> Include A Screenshot of Your Site: </label>
+        <input type="file" name="fileToUpload" id="fileToUpload"/>
+
         <input type="submit" value="submit"/>
       </form>
     </div>
