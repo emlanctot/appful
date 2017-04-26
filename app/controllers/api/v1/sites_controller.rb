@@ -1,5 +1,5 @@
 class Api::V1::SitesController < ApplicationController
-  skip_before_action :verify_authenticity_token
+  skip_before_filter :verify_authenticity_token
 
   def index
     @sites = Site.all
@@ -25,8 +25,10 @@ class Api::V1::SitesController < ApplicationController
   end
 
   def destroy
-    @site = Site.find(params[:id])
-    @site.destroy
+    if user_signed_in?
+      @site = Site.find(params[:id])
+      @site.destroy
+    end
   end
 
   private
