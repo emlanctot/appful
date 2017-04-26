@@ -71,3 +71,35 @@ textarea:focus {
 .columns {
   padding: 10px;
 }
+
+/*PROFILE STYLING */
+
+#user-profile-area.row {
+  border-bottom: 35px solid #a7a9ac;
+  max-width: 2000px;
+  margin-bottom: 50px;
+}
+
+#avatar-area {
+  height: 150px;
+  margin-left: 0;
+}
+
+#avatar-area img {
+  margin-left: 60px;
+}
+
+#info-area {
+  text-align: right;
+  height: 150px;
+}
+
+#info-area h3 {
+  margin-top: 55px;
+  width: 90%;
+}
+
+#info-area h5 {
+  margin-top: 0px;
+  width: 90%;
+}

@@ -29,22 +29,22 @@ class ProfileContainer extends Component{
 
     return(
       <div>
+        <div className="row" id="user-profile-area">
 
-          <center>
-          <div>
-          <h3> @{props.username}</h3>
-          <img src={props.avatar} height="75" width="75"/>
-          </div>
-          </center>
+            <div className="small-6 large-6 columns" id="avatar-area">
+              <img src={this.state.avatar} id="avatar" width="200"/>
+            </div>
 
-          <center>
-          <div>
-            <AllSites
-              sites = {this.state.sites}
-            />
-          </div>
-          </center>
+            <div className="small-6 large-6 columns" id="info-area">
+              <h3> @{this.state.user.username}</h3>
+              <h5> {this.state.user.city}, {this.state.user.state} </h5>
+            </div>
 
+        </div>
+
+          <AllSites
+            sites = {this.state.sites}
+          />
 
       </div>
 
