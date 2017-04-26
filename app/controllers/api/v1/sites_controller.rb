@@ -2,9 +2,12 @@ class Api::V1::SitesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    if params[:search]
+    binding.pry
+    search_term = params["search-term"]
+    if search_term
       @sites = Site.search(params[:search]).order(:created_at)
     else
+      binding.pry
       @sites = Site.all
       render json: @sites
     end
