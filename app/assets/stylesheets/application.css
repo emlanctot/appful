@@ -41,12 +41,15 @@ h1, h2, h3, h4, h5, h6, p {
   margin-right: auto;
   margin-top: 50px;
   position: absolute;
+  box-shadow: 20px 20px 5px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
 }
 .submit-app {
   padding: 20px;
 }
 input[type=text], textarea {
-  background-color: white;
+  background-color: #d6d6d6;
+  box-shadow:inset 3px 3px 3px 3px rgba(0, 0, 0, 0.4);
 }
 input[type=text]:focus {
   background-color: #d6d6d6;
