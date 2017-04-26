@@ -6,7 +6,7 @@ const SearchBar = (props) => {
     <div className="searchbar">
       <form onSubmit={props.onSubmit}>
         <label> Search: </label>
-        <input name="search-term" type="text" onChange={props.onChange} value={props.search_term}/>
+        <input name="query" type="text" onChange={props.onChange} value={props.query} placeholder= 'Search for an app...'/>
 
         <input type="submit" value="Search"/>
       </form>

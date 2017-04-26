@@ -5,29 +5,44 @@ class NavContainer extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      search_term: '',
-      filtered_data: ''
+      query: '',
+      filtered_data: []
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSearchTermChange = this.handleSearchTermChange.bind(this);
   }
 
-  handleSubmit(){
+  handleSubmit(event){
     event.preventDefault();
+    this.getSearchResults();
   }
 
-  handleSearchTermChange(){
-    this.setState({ search_term: event.target.value })
+  getSearchResults() {
+    fetch(`/api/v1/sites/?search-term=${this.state.query}`, {
+      method: `GET`,
+      credentials: 'include'
+    })
+    .then(response => response.json())
+    .then(responseData => {
+      this.setState({ filtered_data: responseData })
+    });
   }
+
+  handleSearchTermChange(event){
+    this.setState({ query: event.target.value })
+  }
+
+
 
   render() {
+    console.log(this.state.filtered_data)
     return(
       <div>
         <h1> Navigation </h1>
 
         <div className='searchbar'>
           <SearchBar
-            search_term = {this.state.search_term}
+            query = {this.state.query}
             onSubmit = {this.handleSubmit}
             onChange = {this.handleSearchTermChange}
           />
