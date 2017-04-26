@@ -4,7 +4,7 @@ const NewSiteForm = (props) => {
   return(
     <div className="column row submit-app">
       <div>
-        <center> <button type="button" onClick={props.handleFormButtonClick}>Submit an App</button> </center>
+        <center> <button type="button" onClick={props.handleFormButtonClick} className= 'share-app'>SHARE YOUR APP</button> </center>
       </div>
       <form onSubmit={props.handleSubmit} className={props.className} id="new-site">
         <label> Name: </label>
@@ -25,7 +25,7 @@ const NewSiteForm = (props) => {
         <label> Experience: </label>
         <input name="experience" type="text" onChange={props.experienceChange} value={props.experienceValue}/>
 
-        <input type="submit" value="Submit"/>
+        <input className= 'share-app-submit' type="submit" value="Submit"/>
       </form>
     </div>
   )
