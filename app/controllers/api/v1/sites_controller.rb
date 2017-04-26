@@ -7,7 +7,6 @@ class Api::V1::SitesController < ApplicationController
     if search_term
       @sites = Site.search(params[:search]).order(:created_at)
     else
-      binding.pry
       @sites = Site.all
       render json: @sites
     end
