@@ -8,8 +8,8 @@ class IndexContainer extends React.Component {
     this.state = {
       errors: {},
       sites: [],
+      user: [],
       name: '',
-      creator_id: 1,
       url: '',
       description: '',
       collaborators: '',
@@ -28,21 +28,30 @@ class IndexContainer extends React.Component {
   }
 
   componentDidMount() {
-    this.getData()
+    this.getData();
+    this.getUserData();
   }
 
   getData() {
-  fetch(`/api/v1/sites`)
-    .then(response => response.json())
-    .then(responseData => {
-      this.setState({ sites: responseData })
-    });
-  }
+    fetch(`/api/v1/sites`)
+      .then(response => response.json())
+      .then(responseData => {
+        this.setState({ sites: responseData });
+      });
+    }
+
+  getUserData() {
+    console.log("User data");
+    fetch(`/api/v1/users`)
+      .then(response => response.json())
+      .then(responseData => {
+        this.setState({ user: responseData });
+      });
+    }
 
   handleClearForm() {
     this.setState({
       name: '',
-      creator_id: 1,
       url: '',
       description: '',
       collaborators: '',
@@ -58,9 +67,11 @@ class IndexContainer extends React.Component {
       this.validateURLChange(this.state.url) ||
       this.validateDescriptionChange(this.state.description)
     ) {
-      let sitePayload = {
+    let user = this.props.user;
+    let user_id = +(user);
+    let sitePayload = {
         name: this.state.name,
-        creator_id: this.state.creator_id,
+        creator_id: user_id,
         url: this.state.url,
         description: this.state.description,
         collaborators: this.state.collaborators,
@@ -172,6 +183,7 @@ class IndexContainer extends React.Component {
   }
 
   render() {
+
     let className;
     if (this.state.formToggle) {
       className = 'selected'
