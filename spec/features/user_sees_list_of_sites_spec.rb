@@ -10,6 +10,7 @@ feature "User sees all sites" do
 
     expect(page).to have_content `#{site.name}`
     expect(page).to have_content `#{site.description}`
+    expect(page).to have_content `#{site.url}`
   end
 
 end

@@ -71,7 +71,7 @@ class IndexContainer extends React.Component {
     let user_id = +(user);
     let sitePayload = {
         name: this.state.name,
-        creator_id: user_id,
+        user_id: user_id,
         url: this.state.url,
         description: this.state.description,
         collaborators: this.state.collaborators,
