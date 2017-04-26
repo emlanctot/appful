@@ -15,6 +15,7 @@
  *= require foundation_and_overrides
 
  */
+@import url('https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono');
 
 .hidden {
   display: none;
@@ -60,4 +61,16 @@ textarea:focus {
 
 .columns {
   padding: 10px;
+}
+.share-app {
+  font-family: 'Ubuntu Mono', monospace;
+  padding: 5px;
+  border: 2px solid black;
+}
+.share-app:hover {
+  background-color: #90dbc6;
+}
+.share-app-submit {
+  background-color: #90dbc6;
+  font-family: 'Ubuntu Mono', monospace;
 }
