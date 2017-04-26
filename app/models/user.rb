@@ -11,4 +11,6 @@ class User < ApplicationRecord
   validates :password, presence: true
   validates :country, presence: true
 
+  mount_uploader :avatar, AvatarUploader
+
 end

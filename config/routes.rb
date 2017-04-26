@@ -9,6 +9,14 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :api do
+    namespace :v1 do
+      resources :profiles
+    end
+  end
+
+  resources :profiles
+
   resources :sites do
     resources :users
   end

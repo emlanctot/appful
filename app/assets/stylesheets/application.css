@@ -16,6 +16,16 @@
 
  */
 
+ @import url('https://fonts.googleapis.com/css?family=Courgette|Damion|PT+Sans+Caption|Ubuntu|Voltaire');
+
+ h1, h2, h3, h4, h5, h6, p {
+   font-family: 'Ubuntu', sans-serif;
+ }
+
+ h1 {
+   text-transform: uppercase;
+ }
+
 .hidden {
   display: none;
 }

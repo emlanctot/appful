@@ -27,11 +27,6 @@
   </div>
 
   <div class="field">
-    <%= f.label :avatar_url %><br />
-    <%= f.text_field :avatar_url, autofocus: true %>
-  </div>
-
-  <div class="field">
     <%= f.label :city %><br />
     <%= f.text_field :city, autofocus: true %>
   </div>
@@ -54,6 +49,11 @@
   <div class="field">
     <%= f.label :personal_url %><br />
     <%= f.text_field :personal_url, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :avatar %><br />
+    <%= f.file_field :avatar, autofocus: true %>
   </div>
 
   <div class="actions">

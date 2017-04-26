@@ -4,7 +4,7 @@ feature "User signs in" do
   let(:user) do
     User.create(
       username: "jarlax1",
-      avatar_url: "https://avatars2.githubusercontent.com/u/174825?v=3&s=400",
+      avatar: "https://avatars2.githubusercontent.com/u/174825?v=3&s=400",
       email: "jarlax1@launchacademy.com",
       password: 'password',
       country: 'United States'
