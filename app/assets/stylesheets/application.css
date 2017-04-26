@@ -103,3 +103,7 @@ textarea:focus {
   margin-top: 0px;
   width: 90%;
 }
+
+#iframe-box {
+  border: 1px solid black;
+}
