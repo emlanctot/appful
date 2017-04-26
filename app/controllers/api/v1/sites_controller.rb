@@ -9,6 +9,7 @@ class Api::V1::SitesController < ApplicationController
   def create
     if user_signed_in?
       @site = Site.create(site_params)
+      @site.user_id = current_user.id
       if @site.save!
         render json: @site
       end
