@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchBar from '../components/SearchBar';
 import AllSites from '../components/AllSites';
+import { Link } from 'react-router';
 
 class NavContainer extends React.Component {
   constructor(props){
@@ -35,25 +36,39 @@ class NavContainer extends React.Component {
 
 
   render() {
-    console.log(this.state.filtered_data)
+
     return(
       <div>
-        <h1> Navigation </h1>
+        <div className="row" id="nav-bar">
 
-        <div className='searchbar'>
-          <SearchBar
-            query = {this.state.query}
-            onChange = {this.handleSearchTermChange}
-          />
-        </div>
+        <div className="small-12 large-12 columns" id="nav-bar">
 
-        <div className="search-results">
-            <AllSites
-              sites = {this.state.filtered_data}
+          <div className="menu">
+            <ul className="menu align-right">
+              <li><Link to="/profiles">My Profile</Link></li>
+              <li><a href="/users/edit">Login/Signup</a></li>
+              <li><a href="#">Search</a></li>
+              <li><Link to="/">Home</Link></li>
+              <li id="logo"><a href="#">APPFUL</a></li>
+            </ul>
+          </div>
+
+          </div>
+          </div>
+
+           <div className='searchbar'>
+            <SearchBar
+              query = {this.state.query}
+              onChange = {this.handleSearchTermChange}
             />
-        </div>
+          </div>
 
-        {this.props.children}
+          <div className="search-results">
+              <AllSites
+                sites = {this.state.filtered_data}
+              />
+          </div>
+          {this.props.children}
       </div>
 
     )

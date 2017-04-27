@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature "User sees the reviews belonging to a site" do
+feature "User adds a review to a site" do
   let(:site) do
     Site.create(
       id: 1,
@@ -23,15 +23,12 @@ feature "User sees the reviews belonging to a site" do
     )
   end
   let(:review) do
-    Review.create(site_id: 1, user_id: 1, overall_rating: 5.0, concept_body: 'such a good concept!', usability_body: 'it is broken!', design_body: 'it looks gross!')
+    Review.create(site_id: 1, user_id: 1, overall_rating: 5.0)
   end
 
-  scenario "when user visits page, sees all reviews" do
+  scenario "when user visits page, user can add a review" do
     visit `/sites/#{site.id}`
 
     expect(page).to have_content `#{review.overall_rating}`
-    expect(page).to have_content `#{review.concept_body}`
-    expect(page).to have_content `#{review.usability_body}`
-    expect(page).to have_content `#{review.design_body}`
   end
 end
