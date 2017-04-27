@@ -4,10 +4,9 @@ import ReviewTile from './ReviewTile'
 class AllReviews extends React.Component {
   constructor(props){
     super(props);
-    this.state = {}
+    this.state = {};
   }
   render(){
-
     let reviews = this.props.reviews.map((review) => {
       return (
         <ReviewTile
@@ -15,6 +14,7 @@ class AllReviews extends React.Component {
           id = {review.id}
           vote_count = {review.vote_count}
           user_id = {review.user_id}
+          username = {review.username}
           siteId = {review.site_id}
           overall_rating = {review.overall_rating}
           design_body = {review.design_body}

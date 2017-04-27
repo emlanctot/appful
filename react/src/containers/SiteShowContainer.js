@@ -10,6 +10,7 @@ class SiteShowContainer extends Component {
       errors: {},
       site: {},
       reviews: [],
+      data: {},
       overall_rating: '',
       site_id: '',
       votes: 0,
@@ -32,6 +33,7 @@ class SiteShowContainer extends Component {
   componentDidMount() {
     this.getSiteData();
     this.getReviewData();
+
   }
 
   getSiteData() {
@@ -148,7 +150,6 @@ class SiteShowContainer extends Component {
       });
       errorDiv = <div className="callout alert">{errorItems}</div>
     }
-
     return(
       <div>
       <div className="column row">

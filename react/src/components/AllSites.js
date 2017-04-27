@@ -8,7 +8,6 @@ class AllSites extends React.Component {
 
   }
   render() {
-    debugger;
     let sites = this.props.sites.map((site) => {
       return (
         <SiteTile
