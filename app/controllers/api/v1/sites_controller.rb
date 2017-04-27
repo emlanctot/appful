@@ -2,14 +2,8 @@ class Api::V1::SitesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    binding.pry
-    search_term = params["search-term"]
-    if search_term
-      @sites = Site.search(params[:search]).order(:created_at)
-    else
-      @sites = Site.all
-      render json: @sites
-    end
+    @sites = Site.all
+    render json: @sites
   end
 
   def create
@@ -33,14 +27,6 @@ class Api::V1::SitesController < ApplicationController
     @site = Site.find(params[:id])
     @site.destroy
   end
-
-  # def search
-  #   if params[:query].nil?
-  #     @sites = []
-  #   else
-  #     @sites = Site.search params[:query]
-  #   end
-  # end
 
   private
 

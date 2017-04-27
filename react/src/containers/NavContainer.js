@@ -18,14 +18,17 @@ class NavContainer extends React.Component {
   }
 
   getSearchResults() {
-    fetch(`/api/v1/sites/?search-term=${this.state.query}`, {
-      method: `GET`,
-      credentials: 'include'
+    let body = { search: this.state.query }
+    fetch(`/api/v1/searches`, {
+      method: 'POST',
+      credentials: 'include',
+      body: JSON.stringify(body)
     })
     .then(response => response.json())
     .then(responseData => {
-      this.setState({ filtered_data: responseData })
+      this.setState({ site: filtered_data })
     });
+    // this.getSearchResults();
   }
 
   handleSearchTermChange(event){
