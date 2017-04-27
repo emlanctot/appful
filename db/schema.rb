@@ -10,21 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170425145358) do
+ActiveRecord::Schema.define(version: 20170427151553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "reviews", force: :cascade do |t|
-    t.float    "overall_rating",             null: false
-    t.integer  "user_id",                    null: false
-    t.integer  "site_id",                    null: false
+    t.float    "overall_rating",                 null: false
+    t.integer  "user_id",                        null: false
+    t.integer  "site_id",                        null: false
     t.string   "design_body"
     t.string   "usability_body"
     t.string   "concept_body"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.integer  "vote_count",     default: 0
+    t.boolean  "voted",          default: false
     t.index ["site_id"], name: "index_reviews_on_site_id", using: :btree
     t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
   end
@@ -43,7 +44,7 @@ ActiveRecord::Schema.define(version: 20170425145358) do
 
   create_table "users", force: :cascade do |t|
     t.string   "username",                            null: false
-    t.string   "avatar_url"
+    t.string   "avatar"
     t.string   "city"
     t.string   "state"
     t.string   "country",                             null: false
@@ -63,6 +64,13 @@ ActiveRecord::Schema.define(version: 20170425145358) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  end
+
+  create_table "votes_tables", force: :cascade do |t|
+    t.integer "user_id",   null: false
+    t.integer "review_id", null: false
+    t.index ["review_id"], name: "index_votes_tables_on_review_id", using: :btree
+    t.index ["user_id"], name: "index_votes_tables_on_user_id", using: :btree
   end
 
 end
