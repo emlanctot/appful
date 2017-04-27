@@ -199,7 +199,7 @@ class SiteShowContainer extends Component {
         />
       </div>
 
-        <div className="column row">
+        <div className="column row review-area">
           <AllReviews
             reviews = {this.state.reviews}
           />

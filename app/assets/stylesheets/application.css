@@ -40,7 +40,7 @@ h1 {
 .site-title {
   color: #767676;
   font-family: 'Ubuntu Mono', monospace;
-  font-size: 48px;
+  font-size: 40px;
   text-align: center;
 }
 .site-title:hover {
@@ -79,14 +79,14 @@ a {
   padding: 20px;
 }
 input[type=text], textarea {
-  background-color: #d6d6d6;
+  background-color: white;
   box-shadow:inset 3px 3px 3px 3px rgba(0, 0, 0, 0.4);
 }
 input[type=text]:focus {
-  background-color: #d6d6d6;
+  background-color: white;
 }
 textarea:focus {
-  background-color: #d6d6d6;
+  background-color: white;
 }
 .site-tile {
   padding: 30px 40px 40px 30xp;
@@ -138,6 +138,10 @@ textarea:focus {
   font-size: 18px;
 }
 
+#nav-bar a:hover {
+  color: black;
+}
+
 #logo a {
   margin-top: 0px;
   font-size: 40px;
@@ -163,6 +167,9 @@ textarea:focus {
 
 .navbar-text a {
   color: white;
+}
+.navbar-text a:hover {
+  color: black;
 }
 .share-app {
   font-family: 'Ubuntu Mono', monospace;
@@ -228,9 +235,16 @@ textarea:focus {
 
 .reviewTile {
   color: black;
+  padding: 40px;
+  border: 2px solid black;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+
+}
+.review-area {
   padding: 20px;
 }
-
 #upvote, #downvote {
   background-color: #90dbc6;
   color: black;
