@@ -34,7 +34,7 @@ class SiteTile extends React.Component {
       deleteClassName = "hidden"
     }
     return(
-      <div className="small-12 medium-6 columns site-tile">
+      <div className="small-12 medium-6 large-4 columns site-tile">
         <div className="box-content">
 
         <Link to={`/sites/${this.props.id}`}><h3 className= 'site-title'>{this.props.name}</h3></Link>
