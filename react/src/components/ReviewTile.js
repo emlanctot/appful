@@ -61,29 +61,14 @@ class ReviewTile extends React.Component {
     })
   }
 
-  // getUserName(user_id){
-  //   let siteId = this.props.params.id
-  //   let reviewId = this.props.user_id.review_id;
-  //   console.log(reviewId);
-  //   fetch(`/api/v1/sites/${siteId}/reviews/${reviewId}`, {
-  //     method: 'GET'
-  //   })
-  //   .then(response => response.json())
-  //   .then(responseData => {
-  //     this.setState({ username: responseData.username })
-  //   });
-  // }
-
   render() {
     return(
-      <div>
-        <p>{this.state.vote_count}</p><button onClick={this.handleUpvote} className="button" id="upvote">Upvote</button>
-        <button onClick={this.handleDownvote} className="button" id="downvote">Downvote</button>
-
+      <div className="reviewTile">
         <h3> Rating: {this.props.overall_rating} </h3>
         <p> Design: {this.props.design_body}</p>
         <p> Usability: {this.props.usability_body}</p>
         <p> Concept: {this.props.concept_body}</p>
+        <span><button onClick={this.handleDownvote} className="button" id="downvote">-</button></span><span className='button' id='voteCount'>{this.state.vote_count}</span><span><button onClick={this.handleUpvote} className="button" id="upvote">+</button></span>
       </div>
     )
   }
