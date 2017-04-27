@@ -34,7 +34,6 @@ class SiteShowContainer extends Component {
   componentDidMount() {
     this.getSiteData();
     this.getReviewData();
-
   }
 
   getSiteData() {
@@ -62,6 +61,7 @@ class SiteShowContainer extends Component {
   handleDelete() {
     let siteId = this.props.params.id;
     fetch(`/api/v1/sites/${siteId}`, {
+      credentials: "same-origin",
       method: "DELETE",
       headers: { "Content-Type": "application/json" }
     })
@@ -105,7 +105,6 @@ class SiteShowContainer extends Component {
   handleSubmit(event) {
     event.preventDefault();
     let reviewPayload = {
-      user_id: 1,
       overall_rating: this.state.overall_rating,
       concept_body: this.state.concept_body,
       design_body: this.state.design_body,
@@ -117,7 +116,6 @@ class SiteShowContainer extends Component {
   }
 
   sendInput(reviewPayload) {
-    console.log(reviewPayload);
     let siteId = this.props.params.id;
     fetch(`/api/v1/sites/${siteId}/reviews`, {
       credentials: "same-origin",

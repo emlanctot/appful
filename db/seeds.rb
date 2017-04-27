@@ -1,10 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
 
 Site.create(name: "Facebook", user_id: 6, url: "www.facebook.com", description: "Facebook is an American for-profit corporation and an online social media and social networking service based in Menlo Park, California.", image: "http://www.pngmart.com/files/3/Facebook-Logo-PNG-Clipart.png")
 
@@ -29,3 +23,4 @@ Site.create(name: "Github", user_id: 6, url: "www.githubcom", description: "GitH
 Site.create(name: "Tumblr", user_id: 6, url: "www.tumblr.com", description: "Tumblr is a microblogging and social networking website founded by David Karp in 2007, and owned by Yahoo! since 2013. The service allows users to post multimedia and other content to a short-form blog. Users can follow other users' blogs.", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Tumblr_Logo.svg/1280px-Tumblr_Logo.svg.png")
 
 Site.create(name: "Heroku", user_id: 6, url: "www.heroku.com", description: "Heroku is a cloud Platform-as-a-Service supporting several programming languages that is used as a web application deployment model.", image: "https://cdn.worldvectorlogo.com/logos/heroku-1.svg")
+
