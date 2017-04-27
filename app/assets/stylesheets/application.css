@@ -23,6 +23,16 @@ h1, h2, h3, h4, h5, h6, p {
   font-family: 'Ubuntu', sans-serif;
 }
 
+ @import url('https://fonts.googleapis.com/css?family=Courgette|Damion|PT+Sans+Caption|Ubuntu|Voltaire');
+
+ h1, h2, h3, h4, h5, h6, p {
+   font-family: 'Ubuntu', sans-serif;
+ }
+
+ h1 {
+   text-transform: uppercase;
+ }
+
 .hidden {
   display: none;
 }
@@ -118,6 +128,47 @@ textarea:focus {
 .share-app-submit {
   background-color: #90dbc6;
   font-family: 'Ubuntu Mono', monospace;
+}
+
+/*PROFILE STYLING */
+
+#user-profile-area.row {
+  border-bottom: 35px solid #a7a9ac;
+  max-width: 2000px;
+  margin-bottom: 50px;
+}
+
+#avatar-area {
+  height: 150px;
+  margin-left: 0;
+}
+
+#avatar-area img {
+  margin-left: 60px;
+}
+
+#info-area {
+  text-align: right;
+  height: 150px;
+}
+
+#info-area h3 {
+  margin-top: 55px;
+  width: 90%;
+}
+
+#info-area h5 {
+  margin-top: 0px;
+  width: 90%;
+}
+
+#iframe-box {
+  border: 1px solid black;
+}
+
+.tile-image {
+  max-height: 200px;
+  max-width: 400px;
 }
 
 .reviewTile {

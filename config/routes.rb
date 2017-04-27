@@ -3,15 +3,11 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      resources :profiles
       resources :sites do
         resources :reviews
       end
-    end
-  end
-
-  namespace :api do
-    namespace :v1 do
-       resources :users
+      resources :users
       resources :searches
     end
   end

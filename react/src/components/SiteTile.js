@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 class SiteTile extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -43,6 +44,7 @@ class SiteTile extends React.Component {
       </div>
     )
   }
+}
 }
 
 export default SiteTile;

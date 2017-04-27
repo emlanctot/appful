@@ -48,30 +48,31 @@ ActiveRecord::Schema.define(version: 20170427151553) do
     t.string   "avatar"
     t.string   "city"
     t.string   "state"
-    t.string   "country",                             null: false
+    t.string   "country",                                null: false
     t.string   "github_url"
     t.string   "personal_url"
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.boolean  "admin",                  default: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  create_table "votes_tables", force: :cascade do |t|
+  create_table "votes", force: :cascade do |t|
     t.integer "user_id",   null: false
     t.integer "review_id", null: false
-    t.index ["review_id"], name: "index_votes_tables_on_review_id", using: :btree
-    t.index ["user_id"], name: "index_votes_tables_on_user_id", using: :btree
+    t.index ["review_id"], name: "index_votes_on_review_id", using: :btree
+    t.index ["user_id"], name: "index_votes_on_user_id", using: :btree
   end
 
 end

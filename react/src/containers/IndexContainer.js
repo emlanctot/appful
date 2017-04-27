@@ -44,7 +44,6 @@ class IndexContainer extends React.Component {
   handleClearForm() {
     this.setState({
       name: '',
-      creator_id: 1,
       url: '',
       description: '',
       collaborators: '',
@@ -73,8 +72,8 @@ class IndexContainer extends React.Component {
       this.sendInput(sitePayload)
       this.getData()
       this.handleClearForm()
-      this.validateImageChange(this.state.image);
-      this.validateURLChange(this.state.url);
+      this.validateImageChange(this.state.image)
+      this.validateURLChange(this.state.url)
     }
   }
 
@@ -115,6 +114,12 @@ class IndexContainer extends React.Component {
 
   handleExperienceChange(event) {
     this.setState({ experience: event.target.value });
+    console.log(this.state.experience)
+  }
+
+  handleImageChange(event) {
+    this.setState({ image: event.target.value });
+    console.log(this.state.image)
   }
 
   handleImageChange(event) {

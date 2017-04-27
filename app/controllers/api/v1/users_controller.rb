@@ -28,4 +28,5 @@ private
   def make_admin
     user.update_attribute(:admin, true)
   end
+
 end

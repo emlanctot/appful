@@ -17,7 +17,8 @@ RSpec.describe Review, type: :model do
       url: "google.com",
       description: 'This is a description. This is a description.
       This is a description. This is a description. This is a description.
-      This is a description.'
+      This is a description.',
+      image: "www.facebook.com"
     )
     Review.create(
       overall_rating: 3.3,
