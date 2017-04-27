@@ -10,20 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170425135853) do
+ActiveRecord::Schema.define(version: 20170426205613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "reviews", force: :cascade do |t|
-    t.float    "overall_rating", null: false
-    t.integer  "user_id",        null: false
-    t.integer  "site_id",        null: false
+    t.float    "overall_rating",             null: false
+    t.integer  "user_id",                    null: false
+    t.integer  "site_id",                    null: false
     t.string   "design_body"
     t.string   "usability_body"
     t.string   "concept_body"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "vote_count",     default: 0
     t.index ["site_id"], name: "index_reviews_on_site_id", using: :btree
     t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
   end
@@ -38,11 +39,12 @@ ActiveRecord::Schema.define(version: 20170425135853) do
     t.string   "experience"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "image"
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "username",                               null: false
-    t.string   "avatar_url"
+    t.string   "avatar"
     t.string   "city"
     t.string   "state"
     t.string   "country",                                null: false

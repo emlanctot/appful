@@ -4,11 +4,6 @@ class Api::V1::SitesController < ApplicationController
   def index
     @sites = Site.all
     render json: @sites
-    @admins = User.where(admin: true)
-    @current_user = current_user
-    respond_to do |format|
-      format.json  { render :json => {:admins => @admins, :current_user => @current_user }}
-    end
   end
 
   def create

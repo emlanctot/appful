@@ -26,10 +26,6 @@ class AllSites extends React.Component {
     return(
       <div>
         {sites}
-        <SiteTile
-        admins = {this.props.admins}
-        current_user = {this.props.current_user}
-        />
       </div>
 
     )
