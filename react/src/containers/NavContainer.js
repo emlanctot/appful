@@ -47,9 +47,7 @@ class NavContainer extends React.Component {
             <ul className="menu align-right">
               <li><Link to="/profiles">My Profile</Link></li>
               <li><a href="/users/edit">Login/Signup</a></li>
-              <li><a href="#">Search</a></li>
-              <li><Link to="/">Home</Link></li>
-              <li id="logo"><a href="#">APPFUL</a></li>
+              <li id="logo"> <Link to="/"> APPFUL </Link> </li>
             </ul>
           </div>
 

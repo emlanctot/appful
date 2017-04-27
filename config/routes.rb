@@ -4,8 +4,6 @@ Rails.application.routes.draw do
   get 'sites/:id/edit', to: 'sites#edit', as: :edit_site
   put 'sites/:id', to: 'sites#update', as: :update_site
 
-  resources :sites
-
   namespace :api do
     namespace :v1 do
       resources :profiles
@@ -25,9 +23,6 @@ Rails.application.routes.draw do
   end
 
   put 'admin/:id' => 'users#make_admin', :as => "make_admin"
-  # devise_scope :user do
-  #   get "users/sign_out" => "devise/sessions#destroy"
-  # end
 
   root "sites#index"
 
