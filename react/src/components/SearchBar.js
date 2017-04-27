@@ -4,11 +4,9 @@ import { browserHistory, Link } from 'react-router';
 const SearchBar = (props) => {
   return(
     <div className="searchbar">
-      <form onSubmit={props.onSubmit}>
+      <form>
         <label> Search: </label>
-        <input name="search-term" type="text" onChange={props.onChange} value={props.search_term}/>
-
-        <input type="submit" value="Search"/>
+        <input name="query" type="text" onChange={props.onChange} value={props.query} placeholder= 'Search for an app...'/>
       </form>
     </div>
   )

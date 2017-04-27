@@ -9,13 +9,11 @@ const Root = () => {
   return(
       <Router history={browserHistory}>
         <Route path="/" component={NavContainer}>
-<<<<<<< HEAD
+
           <IndexRoute component={IndexContainer} />
           <Route path='profiles' component={ProfileContainer} />
-=======
-          <IndexRoute component={IndexContainer}/>
->>>>>>> master
           <Route path='sites' component={SiteShowContainer} />
+          <Route path='users' component={SiteShowContainer} />
           <Route path='sites/:id' component={SiteShowContainer} />
         </Route>
       </Router>
