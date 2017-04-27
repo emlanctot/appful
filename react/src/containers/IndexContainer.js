@@ -10,6 +10,7 @@ class IndexContainer extends React.Component {
       sites: [],
       user: [],
       name: '',
+      user_id: '',
       url: '',
       description: '',
       collaborators: '',
@@ -29,7 +30,6 @@ class IndexContainer extends React.Component {
 
   componentDidMount() {
     this.getData();
-    this.getUserData();
   }
 
   getData() {
@@ -69,6 +69,7 @@ class IndexContainer extends React.Component {
     ) {
     let sitePayload = {
         name: this.state.name,
+        user_id: this.state.user_id,
         url: this.state.url,
         description: this.state.description,
         collaborators: this.state.collaborators,
@@ -82,7 +83,6 @@ class IndexContainer extends React.Component {
   }
 
   sendInput(sitePayload) {
-    console.log(sitePayload)
     fetch("/api/v1/sites.json", {
       credentials: 'same-origin',
       method: "POST",
@@ -178,7 +178,6 @@ class IndexContainer extends React.Component {
       })
     }
   }
-
   render() {
 
     let className;
@@ -204,7 +203,7 @@ class IndexContainer extends React.Component {
           className = {className}
           handleFormButtonClick = {this.handleFormButtonClick}
           nameValue = {this.state.name}
-          creatorValue = {this.state.creator_id}
+          creatorValue = {this.state.user_id}
           urlValue = {this.state.url}
           descriptionValue = {this.state.description}
           collaboratorsValue = {this.state.collaborators}

@@ -10,6 +10,7 @@ const Root = () => {
         <Route path="/" component={NavContainer}>
           <IndexRoute component={IndexContainer}/>
           <Route path='sites' component={SiteShowContainer} />
+          <Route path='users' component={SiteShowContainer} />
           <Route path='sites/:id' component={SiteShowContainer} />
         </Route>
       </Router>
