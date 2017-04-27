@@ -162,10 +162,11 @@ class SiteShowContainer extends Component {
 
     return(
       <div>
-        <div className="column row">
-          <SiteTile
-            handleUpdate = {this.handleUpdate}
+      <div className="row">
+        <SiteTile
             handleDelete = {this.handleDelete}
+            handleUpdate = {this.handleUpdate}
+
             key = {this.state.site.id}
             id = {this.state.site.id}
             name = {this.state.site.name}

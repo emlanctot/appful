@@ -15,12 +15,13 @@
  *= require foundation_and_overrides
 
  */
+
 @import url('https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono');
 
  @import url('https://fonts.googleapis.com/css?family=Courgette|Damion|PT+Sans+Caption|Ubuntu|Voltaire');
 
 h1, h2, h3, h4, h5, h6, p {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Ubuntu Mono', monospace;
 }
 
  @import url('https://fonts.googleapis.com/css?family=Courgette|Damion|PT+Sans+Caption|Ubuntu|Voltaire');
@@ -36,12 +37,37 @@ h1, h2, h3, h4, h5, h6, p {
 .hidden {
   display: none;
 }
+.welcomeTitle {
+  color: #505050;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+}
+
+.site-title {
+  color: #767676;
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 48px;
+}
+.site-title:hover {
+  color: #45c09d;
+  font-weight: bold;
+}
+p {
+  color: #505050;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+a {
+  color:#45c09d;
+  z-index: 3;
+}
+
 #new-site {
   width: 500px;
   border: 2px solid black;
   background-color: white;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   padding-left: 40px;
   padding-right: 40px;
   text-align: center;
@@ -49,7 +75,7 @@ h1, h2, h3, h4, h5, h6, p {
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 50px;
+  margin-top: 5px;
   position: absolute;
   box-shadow: 20px 20px 5px rgba(0, 0, 0, 0.4);
   border-radius: 10px;
@@ -68,11 +94,28 @@ textarea:focus {
   background-color: #d6d6d6;
 }
 .site-tile {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 10px;
+  padding: 30px 40px 40px 30xp;
   margin-bottom: 30px;
+}
+
+/*.columns {
+  padding: 10px;
+}*/
+.box-content {
+  background-color: #e6e6e6;
+  padding: 40px 50px 50px 50px;
+  height: 500px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.row {
+  max-width: 2000px;
+}
+label {
+  color: #505050;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 #nav-bar {
