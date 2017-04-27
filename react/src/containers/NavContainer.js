@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchBar from '../components/SearchBar';
+import AllSites from '../components/AllSites';
 
 class NavContainer extends React.Component {
   constructor(props){
@@ -14,25 +15,26 @@ class NavContainer extends React.Component {
 
   handleSubmit(event){
     event.preventDefault();
-    this.getSearchResults();
   }
 
   getSearchResults() {
-    let body = { search: this.state.query }
+    let query = { query: this.state.query }
     fetch(`/api/v1/searches`, {
       method: 'POST',
       credentials: 'include',
-      body: JSON.stringify(body)
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(query)
     })
     .then(response => response.json())
     .then(responseData => {
-      this.setState({ site: filtered_data })
+      this.setState({ filtered_data: responseData })
     });
-    // this.getSearchResults();
+
   }
 
   handleSearchTermChange(event){
     this.setState({ query: event.target.value })
+    this.getSearchResults();
   }
 
 
@@ -49,6 +51,12 @@ class NavContainer extends React.Component {
             onSubmit = {this.handleSubmit}
             onChange = {this.handleSearchTermChange}
           />
+        </div>
+
+        <div className="search-results">
+            <AllSites
+              sites = {this.state.filtered_data}
+            />
         </div>
 
         {this.props.children}

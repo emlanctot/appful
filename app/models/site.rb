@@ -7,8 +7,4 @@ class Site < ActiveRecord::Base
   validates :url, presence: true
   validates :description, presence: true, length: { minimum: 50, maximum: 500 }
 
-
-  def self.search(query)
-    where("name ilike ?", "%#{query}%")
-  end
 end

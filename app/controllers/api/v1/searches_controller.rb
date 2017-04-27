@@ -2,20 +2,20 @@ class Api::V1::SearchesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def create
-    if JSON.parse(request.body.read)[:query]
-      @sites = Site.search(params[:query]).order("created_at DESC")
+    @sites = Site.all
+    if params[:query]
+      query = params[:query]
+      @sites = Site.where("name ilike ?", "%#{query}%")
       render json: @sites
     else
-      flash[:error] = 'No Results'
+      @sites = Site.all.order("created_at DESC")
     end
   end
 
-  def search
-    if params[:query].nil?
-      @sites = []
-    else
-      @sites = Site.search params[:query]
-    end
+  private
+
+  def search_params
+    params.permit(:query)
   end
 
 end
