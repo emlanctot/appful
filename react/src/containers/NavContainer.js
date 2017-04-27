@@ -9,12 +9,7 @@ class NavContainer extends React.Component {
       query: '',
       filtered_data: []
     }
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSearchTermChange = this.handleSearchTermChange.bind(this);
-  }
-
-  handleSubmit(event){
-    event.preventDefault();
   }
 
   getSearchResults() {
@@ -48,7 +43,6 @@ class NavContainer extends React.Component {
         <div className='searchbar'>
           <SearchBar
             query = {this.state.query}
-            onSubmit = {this.handleSubmit}
             onChange = {this.handleSearchTermChange}
           />
         </div>
