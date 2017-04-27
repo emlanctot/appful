@@ -5,7 +5,7 @@ RSpec.describe Site, type: :model do
     User.create(
     id: 1,
     username: "jarlax3",
-    avatar_url: "https://avatars2.githubusercontent.com/u/174825?v=3&s=400",
+    avatar: "https://avatars2.githubusercontent.com/u/174825?v=3&s=400",
     email: "jarlax3@launchacademy.com",
     password: 'password',
     country: 'United States'
@@ -14,7 +14,8 @@ RSpec.describe Site, type: :model do
       name: "Google",
       user_id: 1,
       url: "google.com",
-      description: 'This is a description. This is a description. This is a description. This is a description. This is a description. This is a description.'
+      description: 'This is a description. This is a description. This is a description. This is a description. This is a description. This is a description.',
+      image: "www.facebook.com"
     )
   end
 

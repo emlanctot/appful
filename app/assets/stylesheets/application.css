@@ -15,7 +15,182 @@
  *= require foundation_and_overrides
 
  */
+@import url('https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono');
+
+ @import url('https://fonts.googleapis.com/css?family=Courgette|Damion|PT+Sans+Caption|Ubuntu|Voltaire');
+
+h1, h2, h3, h4, h5, h6, p {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+ @import url('https://fonts.googleapis.com/css?family=Courgette|Damion|PT+Sans+Caption|Ubuntu|Voltaire');
+
+ h1, h2, h3, h4, h5, h6, p {
+   font-family: 'Ubuntu', sans-serif;
+ }
+
+ h1 {
+   text-transform: uppercase;
+ }
 
 .hidden {
   display: none;
+}
+#new-site {
+  width: 500px;
+  border: 2px solid black;
+  background-color: white;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 40px;
+  padding-right: 40px;
+  text-align: center;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  position: absolute;
+  box-shadow: 20px 20px 5px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+}
+.submit-app {
+  padding: 20px;
+}
+input[type=text], textarea {
+  background-color: #d6d6d6;
+  box-shadow:inset 3px 3px 3px 3px rgba(0, 0, 0, 0.4);
+}
+input[type=text]:focus {
+  background-color: #d6d6d6;
+}
+textarea:focus {
+  background-color: #d6d6d6;
+}
+.site-tile {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  margin-bottom: 30px;
+}
+
+#nav-bar {
+  max-width: 2000px;
+  background-color: #90dbc6;
+  height: 60px;
+}
+
+#nav-bar a {
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: white;
+  height: 60px;
+  margin-top: 11px;
+  font-size: 18px;
+}
+
+#logo a {
+  margin-top: 0px;
+  font-size: 40px;
+}
+
+#logo {
+  float: left;
+  text-align: left;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.navbar-text {
+  color: white;
+  background-color: #a7a9ac;
+  padding-top: 5px;
+  padding-right: 10px;
+  margin-bottom: 0px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: right;
+}
+
+.navbar-text a {
+  color: white;
+}
+.share-app {
+  font-family: 'Ubuntu Mono', monospace;
+  padding: 5px;
+  border: 2px solid black;
+}
+.share-app:hover {
+  background-color: #90dbc6;
+}
+.share-app-submit {
+  background-color: #90dbc6;
+  font-family: 'Ubuntu Mono', monospace;
+}
+
+/*PROFILE STYLING */
+
+#user-profile-area.row {
+  border-bottom: 35px solid #a7a9ac;
+  max-width: 2000px;
+  margin-bottom: 50px;
+}
+
+#avatar-area {
+  height: 150px;
+  margin-left: 0;
+}
+
+#avatar-area img {
+  margin-left: 60px;
+}
+
+#info-area {
+  text-align: right;
+  height: 150px;
+}
+
+#info-area h3 {
+  margin-top: 55px;
+  width: 90%;
+}
+
+#info-area h5 {
+  margin-top: 0px;
+  width: 90%;
+}
+
+#iframe-box {
+  border: 1px solid black;
+}
+
+.tile-image {
+  max-height: 200px;
+  max-width: 400px;
+}
+
+.reviewTile {
+  color: black;
+  padding: 20px;
+}
+
+#upvote, #downvote {
+  background-color: #90dbc6;
+  color: black;
+  text-align: center;
+  font-size: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#voteCount {
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 20px;
+  text-align: center;
+  background-color: #a7a9ac;
 }

@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 
 const NewSiteForm = (props) => {
   return(
-    <div className="column row">
+    <div className="column row submit-app">
       <div>
-        <center> <button type="button" onClick={props.handleFormButtonClick}>Submit A New Site</button> </center>
+        <center> <button type="button" onClick={props.handleFormButtonClick} className= 'share-app'>SHARE YOUR APP</button> </center>
       </div>
-      <form onSubmit={props.handleSubmit} className={props.className}>
+      <form onSubmit={props.handleSubmit} className={props.className} id="new-site">
         <label> Name: </label>
         <input name="name" type="text" onChange={props.nameChange} value={props.nameValue}/>
 
@@ -25,10 +25,13 @@ const NewSiteForm = (props) => {
         <label> Experience: </label>
         <input name="experience" type="text" onChange={props.experienceChange} value={props.experienceValue}/>
 
-        <input type="submit" value="submit"/>
+        <label> Website Image: </label>
+        <input name="image" type="text" onChange={props.imageChange} value={props.imageValue}/>
+
+        <input className= 'share-app-submit' type="submit" value="Submit"/>
       </form>
     </div>
   )
 }
 
-export default NewSiteForm
+export default NewSiteForm;

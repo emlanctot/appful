@@ -5,12 +5,26 @@ class Api::V1::ReviewsController < ApplicationController
     @site = Site.find(params[:site_id])
     @reviews = @site.reviews
     render json: @reviews
+    @user = current_user
   end
 
   def create
     @review = Review.new(review_params)
-    @review.user_id = @current_user.id
+    @review.user_id = current_user.id
     @site = Site.find(params[:site_id])
+    @review.site = @site
+    if @review.save!
+      render json: @review
+    end
+  end
+
+  def edit
+    @review = Review.find(params[:id])
+  end
+
+  def update
+    @review = Review.find(params[:id])
+    @review.update(review_params)
     if @review.save!
       render json: @review
     end
@@ -19,6 +33,7 @@ class Api::V1::ReviewsController < ApplicationController
   private
 
   def review_params
-    params.permit(:user_id, :overall_rating, :site_id, :votes, :design_body, :usability_body, :concept_body)
+    params.permit(:id, :overall_rating, :user_id, :site_id, :vote_count, :design_body, :usability_body, :concept_body)
   end
+
 end

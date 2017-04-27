@@ -1,12 +1,15 @@
 class SitesController < ApplicationController
   skip_before_action :verify_authenticity_token
+  before_action :authenticate_user!
 
   def index
     @sites = Site.all
+    @user = current_user
   end
 
   def show
     @site = Site.find(params[:id])
+    @user = current_user
   end
 
   def edit
