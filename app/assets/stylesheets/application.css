@@ -18,21 +18,15 @@
 
 @import url('https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono');
 
- @import url('https://fonts.googleapis.com/css?family=Courgette|Damion|PT+Sans+Caption|Ubuntu|Voltaire');
-
-h1, h2, h3, h4, h5, h6, p {
-  font-family: 'Ubuntu Mono', monospace;
-}
-
- @import url('https://fonts.googleapis.com/css?family=Courgette|Damion|PT+Sans+Caption|Ubuntu|Voltaire');
+@import url('https://fonts.googleapis.com/css?family=Courgette|Damion|PT+Sans+Caption|Ubuntu|Voltaire');
 
  h1, h2, h3, h4, h5, h6, p {
    font-family: 'Ubuntu', sans-serif;
  }
 
- h1 {
-   text-transform: uppercase;
- }
+h1 {
+ text-transform: uppercase;
+}
 
 .hidden {
   display: none;
@@ -47,6 +41,7 @@ h1, h2, h3, h4, h5, h6, p {
   color: #767676;
   font-family: 'Ubuntu Mono', monospace;
   font-size: 40px;
+  text-align: center;
 }
 .site-title:hover {
   color: #45c09d;
@@ -162,8 +157,11 @@ label {
 }
 .share-app {
   font-family: 'Ubuntu Mono', monospace;
-  padding: 5px;
+  padding: 10px 15px;
   border: 2px solid black;
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
 }
 .share-app:hover {
   background-color: #90dbc6;
@@ -210,8 +208,10 @@ label {
 }
 
 .tile-image {
-  max-height: 150px;
-  max-width: 350px;
+  max-height: 100px;
+  max-width: 400px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .reviewTile {

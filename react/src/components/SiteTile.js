@@ -38,7 +38,7 @@ class SiteTile extends React.Component {
         <div className="box-content">
 
         <Link to={`/sites/${this.props.id}`}><h3 className= 'site-title'>{this.props.name}</h3></Link>
-        <img className='tile-image' src={this.props.image} />
+        <img className="tile-image" src={this.props.image}/>
         <p> URL: <a href={this.props.url}>{this.props.url}</a> </p>
         <p> {this.props.description} </p>
         <a href={`/sites/${this.props.id}/edit`} onClick={this.props.handleUpdate} className={deleteClassName}> Edit Post </a>
