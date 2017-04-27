@@ -25,6 +25,9 @@ const NewSiteForm = (props) => {
         <label> Experience: </label>
         <input name="experience" type="text" onChange={props.experienceChange} value={props.experienceValue}/>
 
+        <label> Website Image: </label>
+        <input name="image" type="text" onChange={props.imageChange} value={props.imageValue}/>
+
         <input className= 'share-app-submit' type="submit" value="Submit"/>
       </form>
     </div>
