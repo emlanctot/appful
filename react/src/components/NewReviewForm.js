@@ -11,13 +11,13 @@ const NewReviewForm = (props) => {
         <input name="rating" type="number" onChange={props.ratingChange} value={props.ratingValue}/>
 
         <label> Design: </label>
-        <input name="design_body" type="text" onChange={props.designChange} value={props.urlValue}/>
+        <input name="design_body" type="text" onChange={props.designChange} value={props.designValue}/>
 
         <label> Usability: </label>
-        <input name="usability_body" type="text" onChange={props.usabilityChange} value={props.urlValue}/>
+        <input name="usability_body" type="text" onChange={props.usabilityChange} value={props.usabilityValue}/>
 
         <label> Concept: </label>
-        <input name="concept_body" type="text" onChange={props.conceptChange} value={props.collaboratorsValue}/>
+        <input name="concept_body" type="text" onChange={props.conceptChange} value={props.conceptValue}/>
 
         <input type="submit" value="Submit"/>
       </form>

@@ -15,6 +15,13 @@
  *= require foundation_and_overrides
 
  */
+@import url('https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono');
+
+ @import url('https://fonts.googleapis.com/css?family=Courgette|Damion|PT+Sans+Caption|Ubuntu|Voltaire');
+
+h1, h2, h3, h4, h5, h6, p {
+  font-family: 'Ubuntu', sans-serif;
+}
 
  @import url('https://fonts.googleapis.com/css?family=Courgette|Damion|PT+Sans+Caption|Ubuntu|Voltaire');
 
@@ -68,8 +75,59 @@ textarea:focus {
   margin-bottom: 30px;
 }
 
-.columns {
-  padding: 10px;
+#nav-bar {
+  max-width: 2000px;
+  background-color: #90dbc6;
+  height: 60px;
+}
+
+#nav-bar a {
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: white;
+  height: 60px;
+  margin-top: 11px;
+  font-size: 18px;
+}
+
+#logo a {
+  margin-top: 0px;
+  font-size: 40px;
+}
+
+#logo {
+  float: left;
+  text-align: left;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.navbar-text {
+  color: white;
+  background-color: #a7a9ac;
+  padding-top: 5px;
+  padding-right: 10px;
+  margin-bottom: 0px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: right;
+}
+
+.navbar-text a {
+  color: white;
+}
+.share-app {
+  font-family: 'Ubuntu Mono', monospace;
+  padding: 5px;
+  border: 2px solid black;
+}
+.share-app:hover {
+  background-color: #90dbc6;
+}
+.share-app-submit {
+  background-color: #90dbc6;
+  font-family: 'Ubuntu Mono', monospace;
 }
 
 /*PROFILE STYLING */

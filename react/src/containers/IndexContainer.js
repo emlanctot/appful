@@ -8,8 +8,12 @@ class IndexContainer extends React.Component {
     this.state = {
       errors: {},
       sites: [],
+      user: [],
       name: '',
+<<<<<<< HEAD
       user_id: 1,
+=======
+>>>>>>> master
       url: '',
       description: '',
       collaborators: '',
@@ -30,21 +34,34 @@ class IndexContainer extends React.Component {
   }
 
   componentDidMount() {
-    this.getData()
+    this.getData();
+    this.getUserData();
   }
 
   getData() {
-  fetch(`/api/v1/sites`)
-    .then(response => response.json())
-    .then(responseData => {
-      this.setState({ sites: responseData })
-    });
-  }
+    fetch(`/api/v1/sites`)
+      .then(response => response.json())
+      .then(responseData => {
+        this.setState({ sites: responseData });
+      });
+    }
+
+  getUserData() {
+    console.log("User data");
+    fetch(`/api/v1/users`)
+      .then(response => response.json())
+      .then(responseData => {
+        this.setState({ user: responseData });
+      });
+    }
 
   handleClearForm() {
     this.setState({
       name: '',
+<<<<<<< HEAD
       user_id: 1,
+=======
+>>>>>>> master
       url: '',
       description: '',
       collaborators: '',
@@ -60,9 +77,12 @@ class IndexContainer extends React.Component {
       this.validateURLChange(this.state.url) ||
       this.validateDescriptionChange(this.state.description)
     ) {
-      let sitePayload = {
+    let sitePayload = {
         name: this.state.name,
+<<<<<<< HEAD
         user_id: this.state.user_id,
+=======
+>>>>>>> master
         url: this.state.url,
         description: this.state.description,
         collaborators: this.state.collaborators,
@@ -194,6 +214,7 @@ class IndexContainer extends React.Component {
   }
 
   render() {
+
     let className;
     if (this.state.formToggle) {
       className = 'selected'
@@ -211,7 +232,6 @@ class IndexContainer extends React.Component {
     }
     return(
       <div>
-        <center><h1>Welcome to Appful</h1></center>
         {errorDiv}
 
         <NewSiteForm
