@@ -9,6 +9,12 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :api do
+    namespace :v1 do
+      resources :searches
+    end
+  end
+
   resources :sites do
     resources :users
   end
