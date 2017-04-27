@@ -19,6 +19,7 @@ class AllSites extends React.Component {
           collaborators = {site.collaborators}
           github_url = {site.github_url}
           experience = {site.experience}
+          image = {site.image}
         />
       )
     })

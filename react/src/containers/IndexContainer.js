@@ -8,7 +8,6 @@ class IndexContainer extends React.Component {
     this.state = {
       errors: {},
       sites: [],
-      user: [],
       name: '',
       user_id: '',
       url: '',
@@ -16,7 +15,8 @@ class IndexContainer extends React.Component {
       collaborators: '',
       github_url: '',
       experience: '',
-      formToggle: false
+      formToggle: false,
+      image: ''
     }
     this.handleFormButtonClick = this.handleFormButtonClick.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -26,32 +26,25 @@ class IndexContainer extends React.Component {
     this.handleCollaboratorsChange = this.handleCollaboratorsChange.bind(this)
     this.handleGithubUrlChange = this.handleGithubUrlChange.bind(this)
     this.handleExperienceChange = this.handleExperienceChange.bind(this)
+    this.handleImageChange = this.handleImageChange.bind(this)
   }
 
   componentDidMount() {
-    this.getData();
+    this.getData()
   }
 
   getData() {
-    fetch(`/api/v1/sites`)
-      .then(response => response.json())
-      .then(responseData => {
-        this.setState({ sites: responseData });
-      });
-    }
-
-  getUserData() {
-    console.log("User data");
-    fetch(`/api/v1/users`)
-      .then(response => response.json())
-      .then(responseData => {
-        this.setState({ user: responseData });
-      });
-    }
+  fetch(`/api/v1/sites`)
+    .then(response => response.json())
+    .then(responseData => {
+      this.setState({ sites: responseData })
+    });
+  }
 
   handleClearForm() {
     this.setState({
       name: '',
+      creator_id: 1,
       url: '',
       description: '',
       collaborators: '',
@@ -67,18 +60,21 @@ class IndexContainer extends React.Component {
       this.validateURLChange(this.state.url) ||
       this.validateDescriptionChange(this.state.description)
     ) {
-    let sitePayload = {
+      let sitePayload = {
         name: this.state.name,
         user_id: this.state.user_id,
         url: this.state.url,
         description: this.state.description,
         collaborators: this.state.collaborators,
         github_url: this.state.github_url,
-        experience: this.state.experience
+        experience: this.state.experience,
+        image: this.state.image
       }
       this.sendInput(sitePayload)
       this.getData()
       this.handleClearForm()
+      this.validateImageChange(this.state.image);
+      this.validateURLChange(this.state.url);
     }
   }
 
@@ -101,7 +97,6 @@ class IndexContainer extends React.Component {
   }
 
   handleUrlChange(event) {
-    this.validateURLChange(event.target.value);
     this.setState({ url: event.target.value });
   }
 
@@ -120,6 +115,10 @@ class IndexContainer extends React.Component {
 
   handleExperienceChange(event) {
     this.setState({ experience: event.target.value });
+  }
+
+  handleImageChange(event) {
+    this.setState({ image: event.target.value });
   }
 
   validateNameChange(name) {
@@ -165,6 +164,19 @@ class IndexContainer extends React.Component {
     }
   }
 
+  validateImageChange(image) {
+    if (image === '' || image === ' ') {
+      let newError = { image: "Website image should not be blank"};
+      this.setState({ errors: Object.assign(this.state.errors, newError) });
+      return false;
+    } else {
+      let errorState = this.state.errors;
+      delete errorState.image;
+      this.setState({ errors: errorState });
+      return true;
+    }
+  }
+
   handleFormButtonClick() {
     if (this.state.formToggle == false) {
       this.setState({
@@ -179,7 +191,6 @@ class IndexContainer extends React.Component {
     }
   }
   render() {
-
     let className;
     if (this.state.formToggle) {
       className = 'selected'
@@ -197,6 +208,7 @@ class IndexContainer extends React.Component {
     }
     return(
       <div>
+        <center><h1>Welcome to Appful</h1></center>
         {errorDiv}
 
         <NewSiteForm
@@ -209,6 +221,7 @@ class IndexContainer extends React.Component {
           collaboratorsValue = {this.state.collaborators}
           githubUrlValue = {this.state.github_url}
           experienceValue = {this.state.experience}
+          imageValue = {this.state.image}
 
           nameChange = {this.handleNameChange}
           creatorChange = {this.handleCreatorIdChange}
@@ -217,6 +230,7 @@ class IndexContainer extends React.Component {
           collaboratorsChange = {this.handleCollaboratorsChange}
           githubUrlChange = {this.handleGithubUrlChange}
           experienceChange = {this.handleExperienceChange}
+          imageChange = {this.handleImageChange}
 
           handleSubmit = {this.handleSubmit}
         />
