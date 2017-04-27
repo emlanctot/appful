@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   # before_action :authenticate_user!
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :avatar_url, :city, :state, :country, :github_url, :personal_url])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :avatar, :city, :state, :country, :github_url, :personal_url])
   end
  end

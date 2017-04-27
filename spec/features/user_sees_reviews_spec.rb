@@ -16,7 +16,7 @@ feature "User sees the reviews belonging to a site" do
     User.create(
       id: 1,
       username: "jarlax3",
-      avatar_url: "https://avatars2.githubusercontent.com/u/174825?v=3&s=400",
+      avatar: "https://avatars2.githubusercontent.com/u/174825?v=3&s=400",
       email: "jarlax3@launchacademy.com",
       password: 'password',
       country: 'United States'
