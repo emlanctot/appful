@@ -175,6 +175,7 @@ class SiteShowContainer extends Component {
             collaborators = {this.state.site.collaborators}
             github_url = {this.state.site.github_url}
             experience = {this.state.site.experience}
+            image = {this.state.site.image}
           />
         </div>
 
@@ -198,7 +199,7 @@ class SiteShowContainer extends Component {
         />
       </div>
 
-        <div className="column row">
+        <div className="column row review-area">
           <AllReviews
             reviews = {this.state.reviews}
           />

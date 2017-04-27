@@ -63,12 +63,16 @@ class ReviewTile extends React.Component {
 
   render() {
     return(
-      <div className="reviewTile">
-        <h3> Rating: {this.props.overall_rating} </h3>
+      <div className="medium-12 columns reviewTile">
+        <div className='medium-4 columns'>
+          <h3> Rating: {this.props.overall_rating} </h3>
+          <span><button onClick={this.handleDownvote} className="button" id="downvote">-</button></span><span className='button' id='voteCount'>{this.state.vote_count}</span><span><button onClick={this.handleUpvote} className="button" id="upvote">+</button></span>
+        </div>
+        <div className='medium-8 columns'>
         <p> Design: {this.props.design_body}</p>
         <p> Usability: {this.props.usability_body}</p>
         <p> Concept: {this.props.concept_body}</p>
-        <span><button onClick={this.handleDownvote} className="button" id="downvote">-</button></span><span className='button' id='voteCount'>{this.state.vote_count}</span><span><button onClick={this.handleUpvote} className="button" id="upvote">+</button></span>
+        </div>
       </div>
     )
   }

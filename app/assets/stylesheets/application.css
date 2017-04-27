@@ -46,7 +46,7 @@ h1, h2, h3, h4, h5, h6, p {
 .site-title {
   color: #767676;
   font-family: 'Ubuntu Mono', monospace;
-  font-size: 48px;
+  font-size: 40px;
 }
 .site-title:hover {
   color: #45c09d;
@@ -103,8 +103,8 @@ textarea:focus {
 }*/
 .box-content {
   background-color: #e6e6e6;
-  padding: 40px 50px 50px 50px;
-  height: 500px;
+  padding: 30px 40px 40px 50px;
+  height: 450px;
   margin-left: 20px;
   margin-right: 20px;
   border-radius: 10px;
@@ -210,15 +210,22 @@ label {
 }
 
 .tile-image {
-  max-height: 200px;
-  max-width: 400px;
+  max-height: 150px;
+  max-width: 350px;
 }
 
 .reviewTile {
   color: black;
+  padding: 40px;
+  border: 2px solid black;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  
+}
+.review-area {
   padding: 20px;
 }
-
 #upvote, #downvote {
   background-color: #90dbc6;
   color: black;
