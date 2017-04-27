@@ -20,6 +20,7 @@ class SiteShowContainer extends Component {
       formToggle: false,
       vote_count: 0
     }
+    this.handleUpdate = this.handleUpdate.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleFormButtonClick = this.handleFormButtonClick.bind(this);
     this.handleRatingChange = this.handleRatingChange.bind(this);
@@ -86,6 +87,14 @@ class SiteShowContainer extends Component {
     this.setState({ design_body: event.target.value });
   }
 
+  handleUpdate(site) {
+    let siteId = this.props.params.id;
+    fetch(`/api/v1/sites/${siteId}`, {
+      method: "PUT",
+      data: { site: site }
+    })
+  }
+
   handleUsabilityChange(event) {
     this.setState({ usability_body: event.target.value });
   }
@@ -150,11 +159,14 @@ class SiteShowContainer extends Component {
       });
       errorDiv = <div className="callout alert">{errorItems}</div>
     }
+
     return(
       <div>
       <div className="row">
         <SiteTile
-          handleDelete = {this.handleDelete}
+            handleDelete = {this.handleDelete}
+            handleUpdate = {this.handleUpdate}
+
             key = {this.state.site.id}
             id = {this.state.site.id}
             name = {this.state.site.name}

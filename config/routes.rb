@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  get 'sites/:id/edit', to: 'sites#edit', as: :edit_site
+  put 'sites/:id', to: 'sites#update', as: :update_site
+
+  resources :sites
+
   namespace :api do
     namespace :v1 do
       resources :profiles
@@ -25,4 +30,8 @@ Rails.application.routes.draw do
   # end
 
   root "sites#index"
+
+  scope :auth do
+    get 'is_signed_in', to: 'auth#is_signed_in?'
+  end
 end

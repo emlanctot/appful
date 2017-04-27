@@ -41,6 +41,7 @@ class SiteTile extends React.Component {
         <img src="https://idagram.files.wordpress.com/2012/12/skjermbilde-2012-12-09-kl-17-38-00.png" width="400"/>
         <p> URL: <a href="${this.props.url}">{this.props.url}</a> </p>
         <p> {this.props.description} </p>
+        <a href={`/sites/${this.props.id}/edit`} onClick={this.props.handleUpdate} className={deleteClassName}> Edit Post </a>
         <Link to='/'> <button type="button" className={deleteClassName} onClick={this.props.handleDelete}>Delete This Site</button> </Link>
 
         </div>
@@ -48,5 +49,6 @@ class SiteTile extends React.Component {
     )
   }
 }
+
 
 export default SiteTile;

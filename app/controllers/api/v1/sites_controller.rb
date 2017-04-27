@@ -25,6 +25,17 @@ class Api::V1::SitesController < ApplicationController
     render json: @site
   end
 
+  def edit
+    @site = Site.find(params[:id])
+    render :update
+  end
+
+  def update
+    @site = Site.find(params[:id])
+    @site.update(site_params)
+    redirect_to edit_site_path(@site)
+  end
+
   def destroy
     if user_signed_in?
       @site = Site.find(params[:id])

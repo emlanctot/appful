@@ -239,13 +239,11 @@ class IndexContainer extends React.Component {
 
           handleSubmit = {this.handleSubmit}
         />
-
         <div className="column row">
           <AllSites
             sites = {this.state.sites}
           />
         </div>
-
       </div>
 
     )

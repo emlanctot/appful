@@ -15,6 +15,7 @@ const Root = () => {
           <Route path='sites' component={SiteShowContainer} />
           <Route path='users' component={SiteShowContainer} />
           <Route path='sites/:id' component={SiteShowContainer} />
+          <Route path='sites/:id/edit' component={SiteShowContainer} />
         </Route>
       </Router>
     )
