@@ -9,13 +9,14 @@ class IndexContainer extends React.Component {
       errors: {},
       sites: [],
       name: '',
-      creator_id: 1,
+      user_id: 1,
       url: '',
       description: '',
       collaborators: '',
       github_url: '',
       experience: '',
-      formToggle: false
+      formToggle: false,
+      image: ''
     }
     this.handleFormButtonClick = this.handleFormButtonClick.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -25,6 +26,7 @@ class IndexContainer extends React.Component {
     this.handleCollaboratorsChange = this.handleCollaboratorsChange.bind(this)
     this.handleGithubUrlChange = this.handleGithubUrlChange.bind(this)
     this.handleExperienceChange = this.handleExperienceChange.bind(this)
+    this.handleImageChange = this.handleImageChange.bind(this)
   }
 
   componentDidMount() {
@@ -42,7 +44,7 @@ class IndexContainer extends React.Component {
   handleClearForm() {
     this.setState({
       name: '',
-      creator_id: 1,
+      user_id: 1,
       url: '',
       description: '',
       collaborators: '',
@@ -60,7 +62,7 @@ class IndexContainer extends React.Component {
     ) {
       let sitePayload = {
         name: this.state.name,
-        creator_id: this.state.creator_id,
+        user_id: this.state.user_id,
         url: this.state.url,
         description: this.state.description,
         collaborators: this.state.collaborators,
@@ -71,6 +73,8 @@ class IndexContainer extends React.Component {
       this.sendInput(sitePayload)
       this.getData()
       this.handleClearForm()
+      this.validateImageChange(this.state.image)
+      this.validateURLChange(this.state.url)
     }
   }
 
@@ -93,7 +97,6 @@ class IndexContainer extends React.Component {
   }
 
   handleUrlChange(event) {
-    this.validateURLChange(event.target.value);
     this.setState({ url: event.target.value });
   }
 
@@ -112,6 +115,12 @@ class IndexContainer extends React.Component {
 
   handleExperienceChange(event) {
     this.setState({ experience: event.target.value });
+    console.log(this.state.experience)
+  }
+
+  handleImageChange(event) {
+    this.setState({ image: event.target.value });
+    console.log(this.state.image)
   }
 
   validateNameChange(name) {
@@ -157,6 +166,19 @@ class IndexContainer extends React.Component {
     }
   }
 
+  validateImageChange(image) {
+    if (image === '' || image === ' ') {
+      let newError = { image: "Website image should not be blank"};
+      this.setState({ errors: Object.assign(this.state.errors, newError) });
+      return false;
+    } else {
+      let errorState = this.state.errors;
+      delete errorState.image;
+      this.setState({ errors: errorState });
+      return true;
+    }
+  }
+
   handleFormButtonClick() {
     if (this.state.formToggle == false) {
       this.setState({
@@ -196,12 +218,13 @@ class IndexContainer extends React.Component {
           className = {className}
           handleFormButtonClick = {this.handleFormButtonClick}
           nameValue = {this.state.name}
-          creatorValue = {this.state.creator_id}
+          creatorValue = {this.state.user_id}
           urlValue = {this.state.url}
           descriptionValue = {this.state.description}
           collaboratorsValue = {this.state.collaborators}
           githubUrlValue = {this.state.github_url}
           experienceValue = {this.state.experience}
+          imageValue = {this.state.image}
 
           nameChange = {this.handleNameChange}
           creatorChange = {this.handleCreatorIdChange}
@@ -210,6 +233,7 @@ class IndexContainer extends React.Component {
           collaboratorsChange = {this.handleCollaboratorsChange}
           githubUrlChange = {this.handleGithubUrlChange}
           experienceChange = {this.handleExperienceChange}
+          imageChange = {this.handleImageChange}
 
           handleSubmit = {this.handleSubmit}
         />

@@ -17,7 +17,7 @@ describe('IndexContainer', function() {
     expect(wrapper.state()).toEqual({
       sites: [],
       name: '',
-      creator_id: 1,
+      user_id: 1,
       url: '',
       description: '',
       collaborators: '',

@@ -107,3 +107,8 @@ textarea:focus {
 #iframe-box {
   border: 1px solid black;
 }
+
+.tile-image {
+  max-height: 200px;
+  max-width: 400px;
+}

@@ -7,7 +7,6 @@ class Api::V1::SitesController < ApplicationController
   end
 
   def create
-    binding.pry
     if user_signed_in?
       @site = Site.create(site_params)
       if @site.save!
@@ -32,6 +31,6 @@ class Api::V1::SitesController < ApplicationController
   private
 
   def site_params
-    params.permit(:name, :creator_id, :url, :description, :collaborators, :github_url, :experience, :created_at, :updated_at, :image)
+    params.permit(:name, :user_id, :url, :description, :collaborators, :github_url, :experience, :created_at, :updated_at, :image)
   end
 end
