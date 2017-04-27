@@ -8,8 +8,9 @@ class IndexContainer extends React.Component {
     this.state = {
       errors: {},
       sites: [],
+      user: [],
       name: '',
-      user_id: 1,
+      user_id: '',
       url: '',
       description: '',
       collaborators: '',
@@ -32,17 +33,25 @@ class IndexContainer extends React.Component {
   }
 
   getData() {
-  fetch(`/api/v1/sites`)
-    .then(response => response.json())
-    .then(responseData => {
-      this.setState({ sites: responseData })
-    });
-  }
+    fetch(`/api/v1/sites`)
+      .then(response => response.json())
+      .then(responseData => {
+        this.setState({ sites: responseData });
+      });
+    }
+
+  getUserData() {
+    console.log("User data");
+    fetch(`/api/v1/users`)
+      .then(response => response.json())
+      .then(responseData => {
+        this.setState({ user: responseData });
+      });
+    }
 
   handleClearForm() {
     this.setState({
       name: '',
-      user_id: 1,
       url: '',
       description: '',
       collaborators: '',
@@ -58,7 +67,7 @@ class IndexContainer extends React.Component {
       this.validateURLChange(this.state.url) ||
       this.validateDescriptionChange(this.state.description)
     ) {
-      let sitePayload = {
+    let sitePayload = {
         name: this.state.name,
         user_id: this.state.user_id,
         url: this.state.url,
@@ -74,7 +83,6 @@ class IndexContainer extends React.Component {
   }
 
   sendInput(sitePayload) {
-    console.log(sitePayload)
     fetch("/api/v1/sites.json", {
       credentials: 'same-origin',
       method: "POST",
@@ -171,6 +179,7 @@ class IndexContainer extends React.Component {
     }
   }
   render() {
+
     let className;
     if (this.state.formToggle) {
       className = 'selected'
@@ -188,7 +197,6 @@ class IndexContainer extends React.Component {
     }
     return(
       <div>
-        <center><h1>Welcome to Appful</h1></center>
         {errorDiv}
 
         <NewSiteForm

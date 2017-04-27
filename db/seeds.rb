@@ -10,6 +10,7 @@
 Site.create(name: "Appful", user_id: 1, url: "www.appful.com", description: "Appful is an application that allows users to submit their app for review by the Appful community. Appful is an application that allows users to submit their app for review by the Appful community.", collaborators: "John Doe. Jane Doe.", github_url: "https://github.com/emlanctot/appful", experience: "Beginner")
 
 
+
 admin_emma = User.new(username: 'emma', country: 'USA', email: 'emmalanctot@gmail.com', password: 'password1')
 admin_emma.admin = true
 admin_emma.save!
@@ -17,3 +18,5 @@ admin_emma.save!
 admin_tim = User.new(username: 'tim', country: 'USA', email: 'tavsx@mac.com', password: 'password2')
 admin_tim.admin = true
 admin_tim.save!
+
+Review.create(id: 1, overall_rating: 5, user: brad, site: appful, design_body: "Amazing design!", usability_body: "Amazing functionality!", concept_body: "Amazing idea!")

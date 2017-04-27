@@ -1,5 +1,5 @@
 class Api::V1::SitesController < ApplicationController
-  skip_before_action :verify_authenticity_token
+  skip_before_filter :verify_authenticity_token
 
   def index
     @sites = Site.all
@@ -9,6 +9,7 @@ class Api::V1::SitesController < ApplicationController
   def create
     if user_signed_in?
       @site = Site.create(site_params)
+      @site.user_id = current_user.id
       if @site.save!
         render json: @site
       end
@@ -18,14 +19,17 @@ class Api::V1::SitesController < ApplicationController
   end
 
   def show
+    @user = current_user
     @site = Site.find(params[:id])
     @reviews = @site.reviews
     render json: @site
   end
 
   def destroy
-    @site = Site.find(params[:id])
-    @site.destroy
+    if user_signed_in?
+      @site = Site.find(params[:id])
+      @site.destroy
+    end
   end
 
   private

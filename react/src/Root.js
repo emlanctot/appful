@@ -4,17 +4,11 @@ import NavContainer from './containers/NavContainer';
 import IndexContainer from './containers/IndexContainer';
 import SiteShowContainer from './containers/SiteShowContainer';
 
-class Root extends Component {
-  constructor(props){
-    super(props)
-    this.state = {}
-  }
-
-  render() {
-    return(
+const Root = () => {
+  return(
       <Router history={browserHistory}>
         <Route path="/" component={NavContainer}>
-          <IndexRoute component={IndexContainer} />
+          <IndexRoute component={IndexContainer}/>
           <Route path='sites' component={SiteShowContainer} />
           <Route path='users' component={SiteShowContainer} />
           <Route path='sites/:id' component={SiteShowContainer} />
@@ -22,6 +16,5 @@ class Root extends Component {
       </Router>
     )
   }
-}
 
 export default Root;
