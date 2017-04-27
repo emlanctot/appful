@@ -152,7 +152,7 @@ class SiteShowContainer extends Component {
     }
     return(
       <div>
-      <div className="column row">
+      <div className="row">
         <SiteTile
           handleDelete = {this.handleDelete}
             key = {this.state.site.id}
