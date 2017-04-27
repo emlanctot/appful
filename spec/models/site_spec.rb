@@ -14,7 +14,8 @@ RSpec.describe Site, type: :model do
       name: "Google",
       user_id: 1,
       url: "google.com",
-      description: 'This is a description. This is a description. This is a description. This is a description. This is a description. This is a description.'
+      description: 'This is a description. This is a description. This is a description. This is a description. This is a description. This is a description.',
+      image: "www.facebook.com"
     )
   end
 
