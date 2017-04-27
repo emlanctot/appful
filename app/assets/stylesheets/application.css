@@ -106,6 +106,7 @@ textarea:focus {
 label {
   color: #505050;
   font-family: 'Ubuntu', sans-serif;
+}
 
 #nav-bar {
   max-width: 2000px;
