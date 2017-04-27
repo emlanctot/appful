@@ -7,7 +7,7 @@ class SiteShowContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      errors: {},
+      error: {},
       site: {},
       reviews: [],
       data: {},
@@ -78,7 +78,6 @@ class SiteShowContainer extends Component {
       })
     }
   }
-
   handleRatingChange(event) {
     this.setState({ overall_rating: event.target.value });
   }
@@ -150,16 +149,6 @@ class SiteShowContainer extends Component {
     } else {
       className = 'hidden';
     }
-
-    let errorDiv;
-    let errorItems;
-    if (Object.keys(this.state.errors).length > 0) {
-      errorItems = Object.values(this.state.errors).map(error => {
-        return(<li key={error}>{error}</li>)
-      });
-      errorDiv = <div className="callout alert">{errorItems}</div>
-    }
-
     return(
       <div>
       <div className="row">

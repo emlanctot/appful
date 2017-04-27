@@ -2,11 +2,11 @@ import React from 'react';
 
 const NewReviewForm = (props) => {
   return(
-    <div className="column row">
+    <div className="column row submit-app">
       <div>
         <center><button type="button" className= 'share-app' onClick={props.handleFormButtonClick}>Submit A New Review</button></center>
       </div>
-      <form onSubmit={props.handleSubmit} className={props.className}>
+      <form onSubmit={props.handleSubmit} className={props.className} id="new-review">
         <label> Rating: </label>
         <input name="rating" type="number" onChange={props.ratingChange} value={props.ratingValue}/>
 
