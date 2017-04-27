@@ -37,12 +37,16 @@ class SiteTile extends React.Component {
       <div className="small-12 medium-6 large-4 columns site-tile">
         <div className="box-content">
 
-        <Link to={`/sites/${this.props.id}`}><h3 className= 'site-title'>{this.props.name}</h3></Link>
-        <img className="tile-image" src={this.props.image}/>
-        <p> URL: <a href={this.props.url}>{this.props.url}</a> </p>
-        <p> {this.props.description} </p>
-        <a href={`/sites/${this.props.id}/edit`} onClick={this.props.handleUpdate} className={deleteClassName}> Edit Post </a>
-        <Link to='/'> <button type="button" className={deleteClassName} onClick={this.props.handleDelete}>Delete This Site</button> </Link>
+          <Link to={`/sites/${this.props.id}`}><h3 className= 'site-title'>{this.props.name}</h3></Link>
+          <img className="tile-image" src={this.props.image}/>
+          <p> URL: <a href={this.props.url}>{this.props.url}</a> </p>
+          <p> {this.props.description} </p>
+          <center>
+            <a href={`/sites/${this.props.id}/edit`} onClick={this.props.handleUpdate} className={deleteClassName}> Edit Post </a>
+            <Link to='/'>
+            <button type="button" className={deleteClassName} onClick={this.props.handleDelete}>Delete This Site</button>
+            </Link>
+          </center>
 
         </div>
       </div>

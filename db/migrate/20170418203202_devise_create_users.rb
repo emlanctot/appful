@@ -2,7 +2,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
   def change
     create_table :users do |t|
       t.string :username, null: false
-      t.string :avatar_url
+      t.string :avatar
       t.string :city
       t.string :state
       t.string :country, null: false
