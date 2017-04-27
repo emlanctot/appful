@@ -3,7 +3,7 @@ import React from 'react';
 const NewSiteForm = (props) => {
   return(
     <div className="column row submit-app">
-      <div>
+      <div className= 'share-button large-12 columns'>
         <center> <button type="button" onClick={props.handleFormButtonClick} className= 'share-app'>SHARE YOUR APP</button> </center>
       </div>
       <form onSubmit={props.handleSubmit} className={props.className} id="new-site">
