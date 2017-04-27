@@ -5,8 +5,7 @@ const SearchBar = (props) => {
   return(
     <div className="searchbar">
       <form>
-        <label> Search: </label>
-        <input name="query" type="text" onChange={props.onChange} value={props.query} placeholder= 'Search for an app...'/>
+        <input name="query" type="text" onChange={props.onChange} value={props.query} placeholder= 'Search For An App...'/>
       </form>
     </div>
   )

@@ -108,9 +108,18 @@ textarea:focus {
 .row {
   max-width: 2000px;
 }
-label {
-  color: #505050;
+.searchbar input[type=text], textarea {
+  background-color: white;
+  box-shadow: none;
+  border: none;
+  border-bottom: 1px solid #bcbec0;
+  height: 35px;
+}
+
+.searchbar input[type=text], textarea::placeholder {
   font-family: 'Ubuntu', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 #nav-bar {
@@ -212,6 +221,9 @@ label {
   max-width: 400px;
   padding-top: 15px;
   padding-bottom: 15px;
+  margin-left: auto;
+ margin-right: auto;
+ display: block;
 }
 
 .reviewTile {
