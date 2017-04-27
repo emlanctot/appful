@@ -24,13 +24,10 @@ class Api::V1::ReviewsController < ApplicationController
 
   def update
     @review = Review.find(params[:id])
-    @voted = @review.See which user_ids did vote.
-    # If this user_id is not included in that array, allow them to update the review.
-    if !@voted.include?(@user_id)
-      @review.update(review_params)
-      if @review.save!
-        render json: @review
-      end
+    @review.update(review_params)
+    if @review.save!
+      render json: @review
+    end
   end
 
   private
