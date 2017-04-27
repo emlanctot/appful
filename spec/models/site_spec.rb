@@ -2,11 +2,20 @@ require 'rails_helper'
 
 RSpec.describe Site, type: :model do
   let(:site) do
+    User.create(
+    id: 1,
+    username: "jarlax3",
+    avatar: "https://avatars2.githubusercontent.com/u/174825?v=3&s=400",
+    email: "jarlax3@launchacademy.com",
+    password: 'password',
+    country: 'United States'
+    )
     Site.create(
       name: "Google",
-      creator_id: 1,
+      user_id: 1,
       url: "google.com",
-      description: 'This is a description. This is a description. This is a description. This is a description. This is a description. This is a description.'
+      description: 'This is a description. This is a description. This is a description. This is a description. This is a description. This is a description.',
+      image: "www.facebook.com"
     )
   end
 
@@ -20,7 +29,7 @@ RSpec.describe Site, type: :model do
   end
 
   it 'is not valid without a creator id' do
-    site.creator_id = nil
+    site.user_id = nil
     expect(site).to_not be_valid
   end
 
