@@ -11,6 +11,10 @@ class ReviewTile extends React.Component {
     this.handleDownvote = this.handleDownvote.bind(this);
   }
 
+  // componentDidMount() {
+  //   this.getUserName(this.props.user_id)
+  // }
+
   handleUpvote() {
     let value = this.state.vote_count += 1;
     let id = this.props.id;
@@ -30,6 +34,7 @@ class ReviewTile extends React.Component {
 
   handleDownvote() {
     let value = this.state.vote_count -= 1;
+    console.log(this.state.vote_count)
     let id = this.props.id;
     this.setState({ vote_count: value });
     let votePayload = {
@@ -42,6 +47,7 @@ class ReviewTile extends React.Component {
       concept_body: this.props.concept_body,
       vote_count: this.state.vote_count
     }
+    console.log(votePayload)
     this.sendVote(votePayload);
   }
 
@@ -56,20 +62,16 @@ class ReviewTile extends React.Component {
   }
 
   render() {
-  return(
-    <div>
-      <button onClick={this.handleUpvote} className="button" id="upvote">Upvote</button>
-      <p> {this.state.vote_count} </p>
-      <button onClick={this.handleDownvote} className="button" id="downvote">Downvote</button>
-
-      <h3> Rating: {this.props.overall_rating} </h3>
-      <p> Creator: Some person here </p>
-      <p> Design: {this.props.design_body}</p>
-      <p> Usability: {this.props.usability_body}</p>
-      <p> Concept: {this.props.concept_body}</p>
-    </div>
-  )
-}
+    return(
+      <div className="reviewTile">
+        <h3> Rating: {this.props.overall_rating} </h3>
+        <p> Design: {this.props.design_body}</p>
+        <p> Usability: {this.props.usability_body}</p>
+        <p> Concept: {this.props.concept_body}</p>
+        <span><button onClick={this.handleDownvote} className="button" id="downvote">-</button></span><span className='button' id='voteCount'>{this.state.vote_count}</span><span><button onClick={this.handleUpvote} className="button" id="upvote">+</button></span>
+      </div>
+    )
+  }
 }
 
 export default ReviewTile;
