@@ -12,6 +12,8 @@
 
 ActiveRecord::Schema.define(version: 20170427151553) do
 
+  enable_extension "plpgsql"
+
   create_table "reviews", force: :cascade do |t|
     t.float    "overall_rating",                 null: false
     t.integer  "user_id",                        null: false
