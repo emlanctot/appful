@@ -19,7 +19,7 @@ const NewReviewForm = (props) => {
         <label> Concept: </label>
         <input name="concept_body" type="text" onChange={props.conceptChange} value={props.conceptValue}/>
 
-        <input type="submit" value="Submit"/>
+        <input className="share-app-submit" type="submit" value="Submit"/>
       </form>
     </div>
   )
