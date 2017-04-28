@@ -22,7 +22,11 @@ feature "User signs in" do
     expect(page).to have_content "Logged in as #{user.email}"
   end
 
+<<<<<<< HEAD
     scenario "successful logout" do
+=======
+  scenario "successful logout" do
+>>>>>>> 813df90af934ae9823e12e9c709dbb95593d8787
     visit '/users/sign_in'
 
     fill_in 'Email', with: user.email

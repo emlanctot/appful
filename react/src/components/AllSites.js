@@ -25,7 +25,7 @@ class AllSites extends React.Component {
     })
 
     return(
-      <div>
+      <div className='all-sites'>
         {sites}
       </div>
 
