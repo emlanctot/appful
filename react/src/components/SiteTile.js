@@ -41,14 +41,15 @@ class SiteTile extends React.Component {
           <img className="tile-image" src={this.props.image}/>
           <p> URL: <a href={this.props.url}>{this.props.url}</a> </p>
           <p> {this.props.description} </p>
-          <center>
-            <a href={`/sites/${this.props.id}/edit`} onClick={this.props.handleUpdate} className={deleteClassName}> Edit Post </a>
-            <Link to='/'>
-            <button type="button" className={deleteClassName} onClick={this.props.handleDelete}>Delete This Site</button>
-            </Link>
-          </center>
 
         </div>
+
+        <center>
+          <a href={`/sites/${this.props.id}/edit`} onClick={this.props.handleUpdate} className={deleteClassName} id="edit-button">Edit</a>
+          <Link to='/'>
+          <button type="button" className={deleteClassName} onClick={this.props.handleDelete} id="delete-button">Delete</button>
+          </Link>
+        </center>
       </div>
     )
   }

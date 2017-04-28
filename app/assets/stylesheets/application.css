@@ -16,7 +16,7 @@
 
  */
 
-@import url('https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu');
 
 @import url('https://fonts.googleapis.com/css?family=Courgette|Damion|PT+Sans+Caption|Ubuntu|Voltaire');
 
@@ -39,7 +39,7 @@ h1 {
 
 .site-title {
   color: #767676;
-  font-family: 'Ubuntu Mono', monospace;
+  font-family: 'Ubuntu', monospace;
   font-size: 40px;
   text-align: center;
 }
@@ -111,8 +111,7 @@ a {
   border-radius: 10px;
 }
 #new-site textarea {
-  background-color: white;
-  box-shadow:inset 3px 3px 3px 3px rgba(0, 0, 0, 0.4);
+  border: 1px solid #cacaca;
 }
 .submit-app {
   padding: 20px;
@@ -128,6 +127,11 @@ input[type=text]:focus {
 textarea:focus {
   background-color: white;
 }
+
+button:focus {
+  outline:0;
+}
+
 .site-tile {
   padding: 30px 40px 40px 30xp;
   margin-bottom: 30px;
@@ -214,24 +218,29 @@ textarea:focus {
   color: black;
 }
 .share-app {
-  font-family: 'Ubuntu Mono', monospace;
+  font-family: 'Ubuntu', monospace;
   padding: 10px 15px;
   border: 2px solid black;
   font-size: 20px;
   letter-spacing: 1px;
-  margin-bottom: 20px;
+  margin-top: 15px;
+  text-transform: uppercase;
 }
 .share-button {
   margin-left: auto;
   margin-right: auto;
   margin-top: -20px;
+  text-transform: uppercase;
 }
 .share-app:hover {
   background-color: #90dbc6;
 }
 .share-app-submit {
   background-color: #90dbc6;
-  font-family: 'Ubuntu Mono', monospace;
+  font-family: 'Ubuntu', monospace;
+  border: none;
+  text-transform: uppercase;
+  padding: 10px 15px;
 }
 
 /*PROFILE STYLING */
@@ -312,4 +321,26 @@ textarea:focus {
 }
 #sign-up {
   text-align: center;
+}
+
+#edit-button {
+  text-transform: uppercase;
+  font-family: Avenir;
+  color: #878787;
+  margin-right: 5px;
+}
+
+#delete-button {
+  text-transform: uppercase;
+  font-family: Avenir;
+  color: #878787;
+  margin-left: 5px;
+}
+
+#edit-button:hover {
+  color: #494949;
+}
+
+#delete-button:hover {
+  color: #494949;
 }
